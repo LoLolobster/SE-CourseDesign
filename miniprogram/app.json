@@ -2,8 +2,8 @@
   "pages": [
     "pages/activityMain/activityMain",
     "pages/index/index",
-    "pages/club/club",
-    "pages/my/my",
+    "pages/clubMain/clubMain",
+    "pages/myMain/myMain",
     "pages/signup/signup"
   ],
   "window": {
@@ -26,13 +26,13 @@
         "text": "活动"
       },
       {
-        "pagePath": "pages/club/club",
+        "pagePath": "pages/clubMain/clubMain",
         "iconPath": "images/tab/ic_catefory_normal.png",
         "selectedIconPath": "images/tab/ic_catefory_pressed.png",
         "text": "社团"
       },
       {
-        "pagePath": "pages/my/my",
+        "pagePath": "pages/myMain/myMain",
         "iconPath": "images/tab/my-off.png",
         "selectedIconPath": "images/tab/my-on.png",
         "text": "我的"

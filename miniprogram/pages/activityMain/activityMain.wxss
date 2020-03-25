@@ -96,3 +96,8 @@
   justify-content: center;
 }
 
+.vanBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -39,4 +39,5 @@
   </view>
 </block>
 
-  
+
+  <van-button type="info" round class="vanBtn">van-button demo</van-button>
