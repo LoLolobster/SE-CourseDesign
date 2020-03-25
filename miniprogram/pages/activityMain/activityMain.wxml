@@ -8,8 +8,8 @@
 <!--页面其它部分-->
 
 <!-- 列表视图-->
-<block wx:for="{{testData.data}}" wx:key="{{index}}">
-  <view class="cardView" data-index="{{item.index}}" bindtap="gotoActivity">
+<block wx:for="{{realData}}" wx:key="index">
+  <view class="cardView" bindtap="gotoActivity">
   
   <!-- 左侧图片 -->
   <view class="imgStyle">

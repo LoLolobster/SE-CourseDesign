@@ -1,5 +1,7 @@
 // pages/activityMain/activityMain.js
 // const app = getApp()
+
+
 Page({
 
   /**
@@ -79,7 +81,11 @@ Page({
           "clubName": "足球社"
         }
       ]
-    }
+    },
+    //后端传入数据
+    realData : []
+      
+    
 
   },
 
@@ -106,7 +112,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this
+    //数据容器
+    let cloudData = []
+    //调用云函数获取活动数据
+    wx.cloud.callFunction({
+      name: 'getActivityMainInfo',
+      success : function(res){
+        console.log("云函数调用成功")
+        for (var activity of res.result.data.list){
+          //获取每个活动的信息
+          let obj = {
+            "clubImg": activity.publishedActivities[0].clubImg,
+            "activityName": activity.activityName,
+            "activityTime": activity.activityTime,
+            "activityLocation": activity.activityLocation,
+            "clubName": activity.publishedActivities[0].clubName
+          }
+          //将信息添加到数据容器
+          cloudData.push(obj)
+        }
+        //将数据容器赋值给小程序端
+        that.setData({
+          realData : cloudData
+        })
+      }
+    })
+    
   },
 
   /**
