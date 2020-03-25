@@ -1,0 +1,42 @@
+<!--pages/activityMain/activityMain.wxml-->
+
+<!-- 页面背景文件 -->
+<image class='background' src="/images/bg/WHU.JPG" mode="aspectFill"></image>
+
+<view class="activityMain_Header" >活动列表</view>
+
+<!--页面其它部分-->
+
+<!-- 列表视图-->
+<block wx:for="{{testData.data}}" wx:key="{{index}}">
+  <view class="cardView" data-index="{{item.index}}" bindtap="gotoActivity">
+  
+  <!-- 左侧图片 -->
+  <view class="imgStyle">
+    <image wx:if="{{item.clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image>
+    <image wx:else="{{item.clubImg}}" mode="aspectFill" class="clubIcon" src="{{item.clubImg}}" ></image>
+  </view>
+
+  <!-- 右侧标题内容 -->
+  <!-- <view style="display:flex;flex-direction:column;margin:5px">
+    <label class="item_title">活动名称：</label>
+    <label class="item_title">活动时间：</label>
+    <label class="item_title">活动地点：</label>
+    <label class="item_title">社团名称：</label>
+
+  </view>
+ -->
+  <!-- 右侧文字内容 -->
+  <view style="display:flex;flex-direction:column;margin:5px">
+    <label class="activityName">{{item.activityName}}</label>
+    <label class="clubName">{{item.clubName}}</label>
+    <label class="activityTime">{{item.activityTime}}</label>
+    <label class="activityLocation">{{item.activityLocation}}</label>
+
+    <!-- <view style="display:flex;flex-direction:row;height:20px;margin-top:8px"> -->
+  </view>
+
+  </view>
+</block>
+
+  
