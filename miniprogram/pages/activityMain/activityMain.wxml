@@ -3,12 +3,18 @@
 <!-- 页面背景文件 -->
 <image class='background' src="/images/bg/WHU.JPG" mode="aspectFill"></image>
 
-<view class="activityMain_Header" >活动列表</view>
+<view class="activityMain_Header">活动列表</view>
 
 <!--页面其它部分-->
 
+<van-dropdown-menu >
+	<van-dropdown-item title="社团名称" options="{{ clubFilter }}" bindtap="item1click"/>
+	<van-dropdown-item title="活动时间" options="{{ dateFilter }}" />
+	<van-dropdown-item title="活动地点" options="{{ locationFilter }}" />
+</van-dropdown-menu>
+
 <!-- 列表视图-->
-<block wx:for="{{realData}}" wx:key="index">
+<block class="listView" wx:for="{{realData}}" wx:key="index">
   <view class="cardView" bindtap="gotoActivity">
   
   <!-- 左侧图片 -->
@@ -38,6 +44,3 @@
 
   </view>
 </block>
-
-
-  <van-button type="info" round class="vanBtn">van-button demo</van-button>
