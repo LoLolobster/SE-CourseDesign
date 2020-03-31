@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-button": "/dist/button/index",
+    "van-field": "/dist/field/index",
+    "van-icon": "/dist/icon/index",
+    "van-checkbox": "/dist/checkbox/index"}
+}

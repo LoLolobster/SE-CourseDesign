@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/signIn/signin",
+    "pages/personInfo/personinfo",
     "pages/activityMain/activityMain",
     "pages/index/index",
     "pages/clubMain/clubMain",
