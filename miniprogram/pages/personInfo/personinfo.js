@@ -3,7 +3,7 @@ Page({
   data: {
     tempFilePaths: '',//文件路径
     nickName: '',//昵称
-    userInfoAvatar: '',
+    userInfoAvatar: '',//头像
     sex: '',
     province: '',
     city: '',
