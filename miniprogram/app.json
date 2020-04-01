@@ -1,15 +1,17 @@
 {
   "pages": [
+        "pages/signIn/signin",
+        
     "pages/personInfo/personinfo",
-    "pages/signIn/signin",
+    "pages/about/about", 
     "pages/activityMain/activityMain",
     "pages/index/index",
     "pages/clubMain/clubMain",
     "pages/myMain/myMain",
     "pages/clubRecommend/clubRecommend",
     "pages/signup/signup",
-    "pages/activityInfo/activityInfo",
-    "pages/about/about"
+    "pages/activityInfo/activityInfo"
+  
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -56,7 +58,8 @@
     "van-field": "../dist/field",
     "van-icon": "../dist/icon",
     "van-checkbox": "../dist/checkbox",
-    "van-radio": "../dist/radio"
+    "van-radio": "../dist/radio",
+    "van-picker": "../dist/picker"
   },
 
   "sitemapLocation": "sitemap.json",

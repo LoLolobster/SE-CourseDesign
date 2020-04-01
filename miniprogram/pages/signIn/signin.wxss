@@ -28,6 +28,16 @@ page{
   opacity: 0.6;
 }
  
+
+
+.checkboxPane{
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: space-between; 
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+}
+ 
 /*表单内容*/
 .login-from {
   margin: 0 auto;

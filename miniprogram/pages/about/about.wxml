@@ -1,2 +1,7 @@
 <!--miniprogram/pages/about/about.wxml-->
-<text>miniprogram/pages/about/about.wxml</text>
+<view class="container"> 
+  <view class="login-icon">  
+    <image class="login-img" src="/images/signin/1.jpg"></image>  
+  </view>  
+  <text class="textPane">这是一段测试用的废话。这是一段测试用的废话。这是一段测试用的废话。这是一段测试用的废话。这是一段测试用的废话。</text>
+</view>

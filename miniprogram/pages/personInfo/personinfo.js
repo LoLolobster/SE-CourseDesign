@@ -5,15 +5,16 @@ Page({
     nickName: '',//昵称
     userInfoAvatar: '',//头像
     sex: '',
-    province: '',
-    city: '',
+    province: '1',
+    city: '1',
+    signiture:'',
     items: [
       { name: 'man', value: '男' },
-      { name: 'femail', value: '女', checked: 'true' },
+      { name: 'femail', value: '女'},
       { name: 'bm', value: '保密' }
     ]
   },
-  chooseimage: function () {
+  chooseimage: function () {//点击头像事件 未对数据库进行操作
     var _this = this;
     wx.chooseImage({
       count: 1, // 默认9
@@ -30,6 +31,15 @@ Page({
       },
     })
   },
+
+  nicknameInput: function () {//昵称改变事件 数据库操作
+
+  },
+
+  signitureInput:function(){//签名改变事件
+
+  },
+
   onLoad: function () {
     var that = this;
     wx.getUserInfo({

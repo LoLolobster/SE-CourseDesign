@@ -1,17 +1,17 @@
 <view class="container">
 <view class="head">
-  <text>头像</text>
+  <van-cell>头像</van-cell>
   <view class="real">
     <image class="n" bindtap="chooseimage" src="/images/signin/1.jpg"></image>
     <image class="a" src="{{head}}"/>
   </view>
 </view>
 <view class="nickName"> 
-  <text>昵称</text>
-  <view class="real">{{nickName}}</view>
+<van-cell>昵称</van-cell>
+<input class="inputText" bindinput="nickNameInput" value="{{nickName}}"></input>
 </view>
 <view class="sex">
-  <text>性别</text>
+  <van-cell>性别</van-cell>
   <view class="real">
    <radio-group class="radio-group" bindchange="radioChange">
      <label class="radio" wx:for="{{items}}">
@@ -21,11 +21,12 @@
   </view>
 </view>
 <view class="area">
-  <text>地址</text>
+    <van-cell>地址</van-cell>
   <view class="real">{{province}}省{{city}}市</view>
 </view>
 <view class="signature">
-  <text>个性签名</text>
+  <van-cell>个性签名</van-cell>
+  <input class="inputText" bindinput="signatureInput" value="{{signature}}"></input>
   <view class="real"></view>
 </view>
 <view class="save"><van-button type="primary" round='true'>保存</van-button></view>

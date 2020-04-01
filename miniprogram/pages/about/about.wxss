@@ -1,1 +1,27 @@
 /* miniprogram/pages/about/about.wxss */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  box-sizing:border-box;
+} 
+ 
+/*登录图片*/
+.login-icon{
+  flex: none;
+  margin: 0 auto;
+  margin-top: 100rpx;
+}
+.login-img{
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 110rpx;
+  opacity: 0.6;
+}
+
+.textPane{
+ margin-top: 100rpx;
+ margin-left: 50rpx;
+ margin-right: 50rpx;
+}
