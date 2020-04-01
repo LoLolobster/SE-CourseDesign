@@ -72,16 +72,21 @@ Page({
     //   key:"id",
     //   data:id
     // })
+    
+    var info = {
+      "clubName": e.currentTarget.dataset.item.clubName, 
+      "clubImg" : e.currentTarget.dataset.item.clubImg,
+      "activityName" : e.currentTarget.dataset.item.activityName,
+      "activityLocation" : e.currentTarget.dataset.item.activityLocation,
+      "activityTime" : e.currentTarget.dataset.item.activityTime
+    };
 
-    // wx.navigateTo({
-    //   url : '../club/club1/club1',
-    // })
+    wx.setStorageSync('activityInfo', info);
 
-    var index = parseInt(e.currentTarget.dataset.index);
-    console.log(index);
-    if (index) {
+    wx.navigateTo({
+      url : '../activityInfo/activityInfo'
+    })
 
-    }
   },
 
   item1click: function(e){

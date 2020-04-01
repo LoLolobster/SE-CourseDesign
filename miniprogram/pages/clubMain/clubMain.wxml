@@ -1,2 +1,57 @@
-<!--miniprogram/pages/club/club.wxml-->
-<text>miniprogram/pages/club/club.wxml</text>
+<!--miniprogram/pages/clubMain/clubMain.wxml-->
+
+<!-- 页面背景文件 -->
+<image class='background' src="/images/bg/WHU2.JPEG" mode="aspectFill"></image>
+<van-tabs active="{{ 1 }}" bind:change="onChange">
+  <van-tab title="推荐社团">
+    <view class="content">
+      <!-- 推荐社团页面 -->
+    </view>
+  </van-tab>
+
+  <van-tab title="社团列表">
+    <view>
+      <view class="activityMain_Header">社团列表</view>
+
+      <!--页面其它部分-->
+
+      <!-- <van-dropdown-menu >
+	<van-dropdown-item title="社团名称" options="{{ clubFilter }}" bindtap="item1click"/>
+	<van-dropdown-item title="活动时间" options="{{ dateFilter }}" />
+	<van-dropdown-item title="活动地点" options="{{ locationFilter }}" />
+</van-dropdown-menu> -->
+      <!-- 列表视图-->
+      <block class="listView" wx:for="{{testData}}" wx:key="index">
+        <view class="cardView" bindtap="gotoClub" data-item="{{item}}">
+
+          <!-- 左侧图片 -->
+          <view class="imgStyle">
+            <image wx:if="{{item.clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image>
+            <image wx:else="{{item.clubImg}}" mode="aspectFill" class="clubIcon" src="{{item.clubImg}}"></image>
+          </view>
+
+          <!-- 右侧标题内容 -->
+          <!-- <view style="display:flex;flex-direction:column;margin:5px">
+    <label class="item_title">活动名称：</label>
+    <label class="item_title">活动时间：</label>
+    <label class="item_title">活动地点：</label>
+    <label class="item_title">社团名称：</label>
+
+  </view>
+ -->
+          <!-- 右侧文字内容 -->
+          <view style="display:flex;flex-direction:column;margin:5px">
+            <label class="clubName">{{item.clubName}}</label>
+            <label class="clubInfo">{{item.clubInfo}}</label>
+            <label class="clubHeaderName">{{item.clubHeaderName}}</label>
+            <label class="clubHeaderQQ">{{item.clubHeaderQQ}}</label>
+
+            <!-- <view style="display:flex;flex-direction:row;height:20px;margin-top:8px"> -->
+          </view>
+
+        </view>
+      </block>
+
+    </view>
+  </van-tab>
+</van-tabs>

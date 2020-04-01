@@ -5,7 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
+    realData:[],
+    testData:[
+      {
+        tabs2: [1,2],
+        "clubName" : "足球社",
+        "clubHeaderName": "Messi",
+        "clubHeaderQQ": "1051302489",
+        "clubInfo": "武汉大学足球队",
+        "clubImg":""
+      }
+    ]
 
+  },
+
+  gotoClub : function(e){
+    console.log("to club info page")
   },
 
   /**

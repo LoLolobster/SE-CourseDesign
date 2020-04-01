@@ -15,7 +15,7 @@
 
 <!-- 列表视图-->
 <block class="listView" wx:for="{{realData}}" wx:key="index">
-  <view class="cardView" bindtap="gotoActivity">
+  <view class="cardView" bindtap="gotoActivity"  data-item="{{item}}">
   
   <!-- 左侧图片 -->
   <view class="imgStyle">

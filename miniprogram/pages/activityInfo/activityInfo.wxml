@@ -1,0 +1,28 @@
+<!--miniprogram/pages/activityInfo/activityInfo.wxml-->
+<!-- 页面背景文件 -->
+<image class='background' src="/images/bg/bg2.jpg" mode="aspectFill"></image>
+
+<van-nav-bar
+    title="{{ activityName }}"
+    right-text="报名"
+    bind:click-right="onClickRight"/>
+<!-- <image wx:if="{{item.clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image> -->
+<view class="imgStyle">
+    <image wx:if="{{clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image>
+    <image wx:else="{{clubImg}}" mode="aspectFill" class="clubIcon" src="{{clubImg}}" ></image>
+</view>
+
+<view class="actInfoBlock">
+<label class="actInfoTitle">活动地点</label>
+<label class="actInfoContent">{{activityLocation}}</label>
+</view>
+
+<view class="actInfoBlock">
+<label class="actInfoTitle">活动时间</label>
+<label class="actInfoContent">{{activityTime}}</label>
+</view>
+
+<view class="actInfoBlock">
+<label class="actInfoTitle">活动详情</label>
+<label class="actInfoContent">{{activityContent}}</label>
+</view>

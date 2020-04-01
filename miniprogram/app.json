@@ -6,8 +6,13 @@
     "pages/index/index",
     "pages/clubMain/clubMain",
     "pages/myMain/myMain",
+<<<<<<< Updated upstream
     "pages/clubRecommend/clubRecommend",
     "pages/signup/signup"
+=======
+    "pages/signup/signup",
+    "pages/activityInfo/activityInfo"
+>>>>>>> Stashed changes
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -45,7 +50,12 @@
   "usingComponents": {
     "van-button": "../dist/button",
     "van-dropdown-menu": "../dist/dropdown-menu",
-    "van-dropdown-item": "../dist/dropdown-item"
+    "van-dropdown-item": "../dist/dropdown-item",
+    "van-nav-bar":"../dist/nav-bar",
+    "van-toast": "../dist/toast",
+    "van-image":"../dist/image",
+    "van-tabs":"../dist/tabs",
+    "van-tab": "../dist/tab"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

@@ -1,1 +1,117 @@
-/* miniprogram/pages/club/club.wxss */
+/* miniprogram/pages/clubMain/clubMain.wxss */
+
+.activityMain_Header{
+  font-size: 25pt;
+  width: "70%";
+  display: flex;
+  /* position: fixed; */
+  overflow: hidden;
+  vertical-align: middle;
+  align-content: middle;
+  padding-left: 40px;
+  font-weight: 500;
+  z-index: 1;
+}
+.listView{
+  position: fixed;
+}
+
+.background{
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  position:fixed; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+
+.dropdown{
+  opacity: 0.7
+}
+
+.cardView{
+  background-color: #FFF;
+  border-radius: 5px;
+  margin: 5px;
+  display:flex;
+  height:140px;
+  margin-top:10px;
+  opacity: 0.8;
+  box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.10);
+  z-index: -1;
+}
+
+/* .item_title{
+  width: 100%;
+  height: 25%;
+  font-size: 11pt;
+  color:#000;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+} */
+
+.clubName{
+  width: 100%;
+  height: 30%;
+  font-size: 20pt;
+  color:#000;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+.clubInfo{
+  width: 100%;
+  height: 30%;
+  font-size: 15pt;
+  color:#000;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.clubHeaderName{
+  width: 100%;
+  height: 20%;
+  font-size: 11pt;
+  color:#525252;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+}
+
+.clubHeaderQQ{
+  width: 100%;
+  height: 20%;
+  font-size: 11pt;
+  color:#525252;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+.imgStyle{
+  width:40%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clubIcon{
+  width: 90%;
+  height: 90%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vanBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
