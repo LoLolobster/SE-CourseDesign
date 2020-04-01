@@ -6,6 +6,7 @@
     "pages/index/index",
     "pages/clubMain/clubMain",
     "pages/myMain/myMain",
+    "pages/clubRecommend/clubRecommend",
     "pages/signup/signup"
   ],
   "window": {
