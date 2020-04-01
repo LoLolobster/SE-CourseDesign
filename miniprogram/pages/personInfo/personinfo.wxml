@@ -1,13 +1,13 @@
 <view class="container">
-<view class="avatar">
+<view class="head">
   <text>头像</text>
   <view class="real">
-    <image class="n" bindtap="chooseimage" src="/image/avatar_next.png"></image>
-    <image class="a" src="{{userInfoAvatar}}"/>
+    <image class="n" bindtap="chooseimage" src="/images/signin/1.jpg"></image>
+    <image class="a" src="{{head}}"/>
   </view>
 </view>
-<view class="nickName">
-  <text>名字</text>
+<view class="nickName"> 
+  <text>昵称</text>
   <view class="real">{{nickName}}</view>
 </view>
 <view class="sex">
@@ -28,4 +28,5 @@
   <text>个性签名</text>
   <view class="real"></view>
 </view>
+<view class="save"><van-button type="primary" round='true'>保存</van-button></view>
 </view>

@@ -11,7 +11,8 @@ page{
   height: 100%;
   display: flex;
   flex-direction:column;
-  box-sizing: border-box;
+  justify-content:center;
+  box-sizing:inherit;
 } 
  
 /*登录图片*/
@@ -29,7 +30,7 @@ page{
  
 /*表单内容*/
 .login-from {
-  margin-left: 37px;
+  margin: 0 auto;
   margin-top: 150rpx;
   width:80%;
   flex: auto;
@@ -46,7 +47,6 @@ page{
 
 
 .signInBtnView {
-  margin-left: 50px;
   margin-top: 30px;
   margin-bottom: 0px;
   padding-bottom: 0px;
@@ -54,7 +54,6 @@ page{
  
 
 .signUpBtnView {
-  margin-left: 50px;
   margin-top: 10px;
   padding-bottom: 0px;
 }

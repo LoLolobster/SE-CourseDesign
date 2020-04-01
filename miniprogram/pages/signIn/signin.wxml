@@ -28,7 +28,7 @@
         </view>
       </view>
     <view class="signInBtnView">  
-      <van-button type="primary" class="signinBtn" size="large" round="ture" form-type='submit' disabled='{{disabled}}'>登录</van-button>  
+      <van-button type="primary" class="signinBtn" size="large" round="ture" bindtap="submit" disabled='{{disabled}}'>登录</van-button>  
     </view>  
     <view class="signUpBtnView">  
       <van-button type="primary" class="signUpBtn" size="large"  round="ture" form-type='submit' disabled='{{disabled}}'>注册</van-button>  
