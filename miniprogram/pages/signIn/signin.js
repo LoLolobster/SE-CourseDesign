@@ -4,85 +4,231 @@ Page({
    * 页面的初始数据
    */
   data: {
-    disabled: false,
-    no: '',
-    pwd: '',
-    noinput: false,
-    pwdinput: false,
+    btnDisabled: true, //登录按钮是否禁用
+    userName: "", //用户输入的用户名
+    userPwd: "",  //用户输入的密码
+    storedName: '', //缓存中的用户名
+    storedPwd: '', //缓存中的密码
+    remPwdChecked: false, //checkbox是否显示为选中
+    autoLoginChecked: false
   },
-  noinput: function (e) {
-    this.setData({ no: e.detail.value });
-    this.setData({ noinput: true });
-    if (this.data.noinput == true && this.data.pwdinput == true) {
-      this.setData({ disabled: false });
-    }
 
-  },
-  pwdinput: function (e) {
-    this.setData({ pwd: e.detail.value });
-    this.setData({ pwdinput: true });
-    if (this.data.noinput == true && this.data.pwdinput == true) {
-      this.setData({ disabled: false });
-    }
-  },
-  formSubmit: function (e) {
-    wx.showLoading({
-      title: '登录中...',
+  /**
+   * 用户名输入回调函数——控制登录按钮启用
+  */
+  onNameInput: function (e) {
+    if(e.detail){
+      app.globalData.hasNameInput = true
+      this.setData({
+        userName : e.detail
+      })
+    }     
+    else
+      app.globalData.hasNameInput = false
+    this.setData({
+      btnDisabled: !(app.globalData.hasNameInput & app.globalData.hasPwdInput)
     })
-    console.log(e);
-    this.setData({ disabled: true });
-    wx.request({
-      url: app.globalData.url.login, //仅为示例，并非真实的接口地址
-      data: {
-        no: e.detail.value.no,
-        pwd: e.detail.value.pwd
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res);
-        if (res.statusCode == 200) {
-          if (res.data.error == true) {
-            wx.showToast({
-              title: res.data.msg,
-              icon: 'none',
-              duration: 2000
+  },
+
+  /**
+   * 密码输入回调函数——控制登录按钮启用
+  */
+  onPwdInput : function(e) {
+    if(e.detail){
+      app.globalData.hasPwdInput = true
+      this.setData({
+        userPwd: e.detail
+      })
+    }
+    else
+    app.globalData.hasPwdInput = false
+    this.setData({
+      btnDisabled: !(app.globalData.hasNameInput && app.globalData.hasPwdInput)
+    })
+    
+  },
+
+
+  /**
+   * checkbox回调：记住密码&自动登陆
+  */
+  _handlerCheck: function (e) {
+    app.globalData.remPwd = false
+    app.globalData.autoLogin = false
+    for (let i = 0; i < e.detail.value.length; i++) {
+      if (e.detail.value[i] === "remPwd") app.globalData.remPwd = true
+      if (e.detail.value[i] === "autoLogin") app.globalData.autoLogin = true
+    }
+    //缓存——是否记住密码
+    wx.setStorage({
+      key: 'remPwdChecked',
+      data: app.globalData.remPwd
+    })
+  },
+
+  /**
+   * 登录按钮回调：处理登录事件
+  */
+  _handlerLogin : function(e){
+
+    wx.showLoading({
+      title: '登录中',
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+    let inputName = this.data.userName 
+    let inputPwd = this.data.userPwd
+    //调用数据库查询
+    const db = wx.cloud.database()
+    db.collection("allUser").where({
+      userName : inputName,
+    })
+    .get()
+    .then(res => {
+      //查询用户名成功
+      if(res.data.length > 0){
+        //密码匹配成功
+        if(res.data[0].userPwd === inputPwd){
+          //如果记住密码——缓存用户名与密码
+          if (app.globalData.remPwd) {
+            wx.setStorage({
+              key: 'userName',
+              data: inputName,
+              success: function (res) { console.log(res) }
             })
-          } else {
-            wx.setStorageSync('student', res.data.data);
-            wx.showToast({
-              title: res.data.msg,
-              icon: 'success',
-              duration: 2000
+            wx.setStorage({
+              key: 'userPwd',
+              data: inputPwd,
+              success: function (res) { console.log(res) }
             })
-            setTimeout(function () {
-              wx.switchTab({
-                url: '../teacher/teacher',
-              })
-            }, 2000)
           }
-        } else {
+          //缓存——是否自动登录(只有在初次登录成功时才能自动登录)
+          if (app.globalData.autoLogin){
+            wx.setStorage({
+              key: 'autoLoginChecked',
+              data: app.globalData.autoLogin
+            })
+          }    
+          //页面跳转
+          wx.switchTab({
+            url: '../activityMain/activityMain',
+          })
+        }
+        //密码匹配失败
+        else{
           wx.showToast({
-            title: '服务器出现错误',
+            title: '用户名或密码错误！',
             icon: 'none',
             duration: 2000
           })
         }
       }
+      //没有查到用户名
+      else{
+        wx.showToast({
+          title: '请先注册！',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+    .catch(err => {
+      console.error(err)
     })
   },
+
+  /**
+   * 获取缓存：是否记住密码，并在页面加载时处理相应逻辑（输入框，复选框填充）
+  */
+  procRememberPwd : function() {
+    let that = this
+    //获取缓存：上次记住密码是否被勾选
+    wx.getStorage({
+      key: 'remPwdChecked',
+      success: function (res) {
+        that.setData({ remPwdChecked: res.data })
+        console.log("上次是否勾选记住密码", that.data.remPwdChecked)
+        //如果勾选
+        if (that.data.remPwdChecked) {
+          //获取缓存：用户名&密码，填充输入框
+          wx.getStorage({
+            key: 'userName',
+            success: function (res) {
+              that.setData({
+                storedName: res.data
+              })
+            },
+          })
+          wx.getStorage({
+            key: 'userPwd',
+            success: function (res) {
+              that.setData({
+                storedPwd: res.data,
+                btnDisabled: false //如果有缓存数据，登录按钮自动启用
+              })
+            },
+          })
+        }
+      },
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ disabled: false });
-    var student = wx.getStorageSync('student');
-    if (typeof (student) == 'object' && student.no != '' && student.classid != '') {
-      wx.switchTab({
-        url: '../teacher/teacher',
-      })
-    }
+    let that = this
+    //获取缓存：自动登录是否被勾选
+    wx.getStorage({
+      key: 'autoLoginChecked',
+      success: function(res) { 
+        that.setData({ autoLoginChecked:res.data }) 
+        //如果缓存显示上次已经勾选（即初次登录成功）
+        if(that.data.autoLoginChecked){
+          //页面跳转
+          wx.switchTab({
+            url: '../activityMain/activityMain',
+          })
+        }
+        //如果上次未勾选自动登录
+        else{
+          
+        }
+      },
+    })
+    
+    //获取缓存：上次记住密码是否被勾选
+    wx.getStorage({
+      key: 'remPwdChecked',
+      success: function (res) {
+        that.setData({ remPwdChecked: res.data })
+        //如果勾选
+        if (that.data.remPwdChecked) {
+          //获取缓存：用户名&密码，填充输入框
+          wx.getStorage({
+            key: 'userName',
+            success: function (res) {
+              that.setData({
+                storedName: res.data,
+                userName :res.data
+              })
+            },
+          })
+          wx.getStorage({
+            key: 'userPwd',
+            success: function (res) {
+              that.setData({
+                storedPwd: res.data,
+                userPwd : res.data,
+                btnDisabled: false //如果有缓存数据，登录按钮自动启用
+              })
+            },
+          })
+        }
+      },
+    })
   },
 
   /**
@@ -96,11 +242,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (this.data.no == '' || this.data.pwd == '') {
-      this.setData({ disabled: true });
-    } else {
-      this.setData({ disabled: false });
-    }
+   
   },
 
   /**

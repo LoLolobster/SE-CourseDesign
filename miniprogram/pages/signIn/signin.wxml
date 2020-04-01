@@ -1,37 +1,39 @@
 <!--miniprogram/pages/signIn/signin.wxml-->
 <view class="container"> 
   <view class="login-icon">  
-    <image class="login-img" src="/images/signin/1.jpg"></image>  
+    <image class="login-img" src="cloud://mall-x3k10.6d61-mall-x3k10-1301527969/myPhoto.jpg"></image>  
   </view>  
   <view class="login-from">  
-    <form bindsubmit="formSubmit" class='form'>
+    <form class='form'>
       <view class="loginPane">
         <van-field
          class="usernameField"
           left-icon="/images/signin/account.png"
-          value="{{ username }}"
+          value="{{ storedName }}"
           clearable
           placeholder="请输入用户名"
           bind:click-icon="onClickIcon"
+          bind:input="onNameInput"
         />
         <van-field
          class="passwordFiled"
          left-icon="/images/signin/password.png"
-         value="{{ password }}"
+         value="{{ storedPwd }}"
          type="password"
          placeholder="请输入密码"
          border="{{ false }}"
+         bind:input = "onPwdInput"
         />
-        <view class="checkboxPane">
-          <checkbox>记住密码</checkbox>
-          <checkbox>自动登录</checkbox>
-        </view>
+          <checkbox-group bind:change="_handlerCheck">
+            <checkbox value="remPwd" checked="{{remPwdChecked}}">记住密码</checkbox>
+            <checkbox value="autoLogin" checked="{{autoLoginChecked}}">自动登录</checkbox>           
+          </checkbox-group>
       </view>
     <view class="signInBtnView">  
-      <van-button type="primary" class="signinBtn" size="large" round="ture" bindtap="submit" disabled='{{disabled}}'>登录</van-button>  
+      <van-button type="primary" class="signinBtn" size="large" round="ture" bind:click="_handlerLogin" disabled='{{btnDisabled}}'>登录</van-button>  
     </view>  
     <view class="signUpBtnView">  
-      <van-button type="primary" class="signUpBtn" size="large"  round="ture" form-type='submit' disabled='{{disabled}}'>注册</van-button>  
+      <van-button type="primary" class="signUpBtn" size="large"  round="ture">注册</van-button>  
     </view> 
     </form>
   

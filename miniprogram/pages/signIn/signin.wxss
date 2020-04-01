@@ -40,11 +40,6 @@ page{
   flex:1;
   display: flex;
 }
-.checkboxPane{
-  margin-top: 20px;
-  justify-content: space-between;
-}
-
 
 .signInBtnView {
   display: flex;
