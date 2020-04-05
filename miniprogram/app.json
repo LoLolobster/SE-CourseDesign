@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/myAdmin/myAdmin",
     "pages/signIn/signin",
     "pages/clubMain/clubMain",
     "pages/personInfo/personinfo",
@@ -13,6 +12,7 @@
     "pages/signup/signup",
     "pages/activityInfo-admin/activityInfo-admin",
     "pages/clubInfo-admin/clubInfo-admin",
+    "pages/myAdmin/myAdmin",
     "pages/clubInfo/clubInfo"
   ],
   "window": {
