@@ -1,17 +1,19 @@
 {
   "pages": [
-        "pages/signIn/signin",
-        
+    "pages/myAdmin/myAdmin",
+    "pages/signIn/signin",
+    "pages/clubMain/clubMain",
     "pages/personInfo/personinfo",
-    "pages/about/about", 
+    "pages/about/about",
     "pages/activityMain/activityMain",
     "pages/index/index",
-    "pages/clubMain/clubMain",
     "pages/myMain/myMain",
     "pages/clubRecommend/clubRecommend",
+    "pages/activityInfo/activityInfo",
     "pages/signup/signup",
-    "pages/activityInfo/activityInfo"
-  
+    "pages/activityInfo-admin/activityInfo-admin",
+    "pages/clubInfo-admin/clubInfo-admin",
+    "pages/clubInfo/clubInfo"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -50,20 +52,18 @@
     "van-button": "../dist/button",
     "van-dropdown-menu": "../dist/dropdown-menu",
     "van-dropdown-item": "../dist/dropdown-item",
-    "van-nav-bar":"../dist/nav-bar",
+    "van-nav-bar": "../dist/nav-bar",
     "van-toast": "../dist/toast",
-    "van-image":"../dist/image",
-    "van-tabs":"../dist/tabs",
+    "van-image": "../dist/image",
+    "van-tabs": "../dist/tabs",
     "van-tab": "../dist/tab",
     "van-field": "../dist/field",
     "van-icon": "../dist/icon",
     "van-checkbox": "../dist/checkbox",
     "van-radio": "../dist/radio",
-    "van-picker": "../dist/picker"
+    "van-picker": "../dist/picker",
+    "van-notice-bar": "../dist/notice-bar"
   },
-
   "sitemapLocation": "sitemap.json",
   "style": "v2"
-
 }
-

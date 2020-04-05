@@ -1,3 +1,4 @@
+/* miniprogram/pages/activityInfo-admin/activityInfo-admin.wxss */
 /* miniprogram/pages/activityInfo/activityInfo.wxss */
 
 .background{
@@ -44,4 +45,11 @@
   width: 100%;
   font-size: 14pt;
   color: #000;
+}
+
+.btnBlock{
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  margin-top: 50px;
 }

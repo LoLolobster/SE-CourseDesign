@@ -1,25 +1,67 @@
 <!--miniprogram/pages/clubMain/clubMain.wxml-->
-
+<van-notice-bar mode="closeable" text="{{ globalNotice }}" class="{{scrollTop>0 ? 'topnavFixed' : 'topnavAbsolute'}}" />
 <!-- 页面背景文件 -->
 <image class='background' src="/images/bg/WHU2.JPEG" mode="aspectFill"></image>
-<van-tabs active="{{ 1 }}" bind:change="onChange">
+<van-tabs active="{{ 0 }}" bind:change="onChange" style="margin-top : 20px">
+
   <van-tab title="推荐社团">
-    <view class="content">
-      <!-- 推荐社团页面 -->
+
+    <!-- 推荐社团页面 -->
+    <!-- <view class="tabTit box">
+      <view class="flex1{{!tab[index]?' active':''}}" wx:for="{{tabTxt}}" wx:key="type" data-index="{{index}}" bindtap="filterTab">
+        <text>{{item}}</text>
+        <image src="/images/arrow.png"></image>
+      </view>
+    </view>
+
+
+    <view class="tabLayer" hidden="{{tab[0]}}">
+      <text class="{{type_id==0?'active':''}}" data-id="0" data-index="0" data-txt="社团类型" bindtap="filter">不限</text>
+      <text class="{{type_id==item.id?'active':''}}" wx:for="{{typeList}}" wx:key="pp" wx:for-item="item" data-id="{{item.id}}" data-index="0" data-txt="{{item.title}}" bindtap="filter">{{item.title}}</text>
+    </view>
+    <view class="tabLayer" hidden="{{tab[1]}}">
+      <text class="{{number_id==0?'active':''}}" data-id="0" data-index="1" data-txt="社团人数" bindtap="filter">不限</text>
+      <text class="{{number_id==1?'active':''}}" data-id="1" data-index="1" data-txt="低于10人" bindtap="filter">低于10人</text>
+      <text class="{{number_id==2?'active':''}}" data-id="2" data-index="1" data-txt="10到50人" bindtap="filter">10到50人</text>
+      <text class="{{number_id==3?'active':''}}" data-id="3" data-index="1" data-txt="50人以上" bindtap="filter">50人以上</text>
+    </view>
+    <view class="tabLayer" hidden="{{tab[2]}}">
+      <text class="{{score_id==0?'active':''}}" data-id="0" data-index="2" data-txt="评分" bindtap="filter">不限</text>
+      <text class="{{score_id==1?'active':''}}" data-id="1" data-index="2" data-txt="从高到低" bindtap="filter">从高到低</text>
+      <text class="{{score_id==2?'active':''}}" data-id="2" data-index="2" data-txt="从低到高" bindtap="filter">从低到高</text>
+    </view> -->
+
+
+    <view class="container">
+      <view class='xiangqing' wx:for="{{details}}" bindtap="navigateTo">
+        <view class='xiangqing_img'>
+          <image src='{{item.img}}'></image>
+        </view>
+        <view class='xiangqing_info'>
+          <text class='zi'>推荐</text>
+          <text class='title'>{{item.title}}</text>
+          <view class='key'>
+            <text wx:for="{{item.world}}" class='text{{index}}'>{{item.message}}</text>
+          </view>
+          <view class='prix'>
+            <text>成员：{{item.number}}\n</text>
+            <text class='prix1'>综合评分：{{item.score}}</text>
+          </view>
+        </view>
+      </view>
     </view>
   </van-tab>
 
   <van-tab title="社团列表">
     <view>
-      <view class="activityMain_Header">社团列表</view>
 
       <!--页面其它部分-->
 
-      <!-- <van-dropdown-menu >
-	<van-dropdown-item title="社团名称" options="{{ clubFilter }}" bindtap="item1click"/>
-	<van-dropdown-item title="活动时间" options="{{ dateFilter }}" />
-	<van-dropdown-item title="活动地点" options="{{ locationFilter }}" />
-</van-dropdown-menu> -->
+      <van-dropdown-menu>
+        <van-dropdown-item title="社团名称" options="{{ clubFilter }}" bindtap="item1click" />
+        <van-dropdown-item title="活动时间" options="{{ dateFilter }}" />
+        <van-dropdown-item title="活动地点" options="{{ locationFilter }}" />
+      </van-dropdown-menu>
       <!-- 列表视图-->
       <block class="listView" wx:for="{{testData}}" wx:key="index">
         <view class="cardView" bindtap="gotoClub" data-item="{{item}}">
@@ -30,15 +72,6 @@
             <image wx:else="{{item.clubImg}}" mode="aspectFill" class="clubIcon" src="{{item.clubImg}}"></image>
           </view>
 
-          <!-- 右侧标题内容 -->
-          <!-- <view style="display:flex;flex-direction:column;margin:5px">
-    <label class="item_title">活动名称：</label>
-    <label class="item_title">活动时间：</label>
-    <label class="item_title">活动地点：</label>
-    <label class="item_title">社团名称：</label>
-
-  </view>
- -->
           <!-- 右侧文字内容 -->
           <view style="display:flex;flex-direction:column;margin:5px">
             <label class="clubName">{{item.clubName}}</label>

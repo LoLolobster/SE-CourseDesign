@@ -1,12 +1,4 @@
-<!--miniprogram/pages/activityInfo/activityInfo.wxml-->
-<!-- 页面背景文件 -->
-<image class='background' src="/images/bg/bg2.jpg" mode="aspectFill"></image>
-
-<van-nav-bar
-    title="{{ activityName }}"
-    right-text="报名"
-    bind:click-right="onClickRight"/>
-<!-- <image wx:if="{{item.clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image> -->
+<!--miniprogram/pages/activityInfo-admin/activityInfo-admin.wxml-->
 <view class="imgStyle">
     <image wx:if="{{clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image>
     <image wx:else="{{clubImg}}" mode="aspectFill" class="clubIcon" src="{{clubImg}}" ></image>
@@ -36,3 +28,9 @@
 <label class="actInfoTitle">活动详情</label>
 <label class="actInfoContent">{{activityContent}}</label>
 </view>
+
+<view class="btnBlock">
+  <van-button type="info" style="width : 50%;" bindtap="acceptBtn">同意</van-button>
+  <van-button type="danger" bindtap="denyBtn">拒绝</van-button>
+</view>
+

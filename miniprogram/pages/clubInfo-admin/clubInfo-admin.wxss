@@ -1,13 +1,5 @@
-/* miniprogram/pages/activityInfo/activityInfo.wxss */
+/* miniprogram/pages/clubInfo-admin/clubInfo-admin.wxss */
 
-.background{
-  width: 100%;
-  height: 100%;
-  position:fixed; 
-  opacity: 0.3;
-  background-size:100% 100%;
-  z-index: -1;
-}
 
 .imgStyle{
   width:100%;
@@ -28,11 +20,11 @@
   justify-content: center;
 } */
 
-.actInfoBlock{
+.clubInfoBlock{
   width: 100%;
   margin-top: 15px;
 }
-.actInfoTitle{
+.clubInfoTitle{
   width: 100%;
   height: 10%;
   display: flex;
@@ -40,8 +32,16 @@
   color: #737373;
 }
 
-.actInfoContent{
+.clubInfoContent{
   width: 100%;
   font-size: 14pt;
   color: #000;
+}
+
+
+.btnBlock{
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  margin-top: 50px;
 }

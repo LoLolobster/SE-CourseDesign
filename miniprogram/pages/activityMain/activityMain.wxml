@@ -2,8 +2,8 @@
 
 <!-- 页面背景文件 -->
 <image class='background' src="/images/bg/WHU.JPG" mode="aspectFill"></image>
-
-<view class="activityMain_Header">活动列表</view>
+<van-notice-bar mode="closeable" text="{{ globalNotice }}" class="{{scrollTop>0 ? 'topnavFixed' : 'topnavAbsolute'}}" />
+<!-- <view class="{{scrollTop>0 ? 'HeadertopnavFixed' : 'HeadertopnavAbsolute'}}">活动列表</view> -->
 
 <!--页面其它部分-->
 

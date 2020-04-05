@@ -1,23 +1,4 @@
-/* pages/activityMain/activityMain.wxss */
-
-/* .activityMain_Header{
-  z-index: 1;
-} */
-.listView{
-  position: fixed;
-}
-
-.background{
-  width: 100%;
-  height: 100%;
-  position:fixed; 
-  background-size:100% 100%;
-  z-index: -1;
-}
-
-.dropdown{
-  opacity: 0.7
-}
+/* miniprogram/pages/myAdmin/myAdmin.wxss */
 
 .cardView{
   background-color: #FFF;
@@ -98,47 +79,70 @@
   justify-content: center;
 }
 
-.vanBtn{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-/* .HeadertopnavFixed{
-  font-size: 25pt;
-  width: "70%";
-  display: flex;
+.club-clubName{
+  width: 100%;
+  height: 30%;
+  font-size: 20pt;
+  color:#000;
+  word-break: break-all;
+  text-overflow: ellipsis;
   overflow: hidden;
-  vertical-align: middle;
-  align-content: middle;
-  padding-left: 40px;
-  font-weight: 500;
-border-top-left-radius:20rpx;
-border-top-right-radius:20rpx;
-position:fixed;height:100rpx; top:40rpx;background:white;z-index: 1;
 }
-.HeadertopnavAbsolute{
 
-  font-size: 25pt;
-  width: "70%";
-  display: flex;
+
+.clubInfo{
+  width: 100%;
+  height: 30%;
+  font-size: 15pt;
+  color:#000;
+  word-break: break-all;
+  text-overflow: ellipsis;
   overflow: hidden;
-  vertical-align: middle;
-  align-content: middle;
-  padding-left: 40px;
-  font-weight: 500;
-border-top-left-radius:20rpx;
-border-top-right-radius:20rpx;
-position:absolute;
-height:100rpx; top:40rpx;background:white;z-index: 1;
-} */
-.topnavFixed{
-border-top-left-radius:20rpx;
-border-top-right-radius:20rpx;
-position:fixed;width:100%;top:0rpx;background:white;z-index: 1;
 }
-.topnavAbsolute{
-border-top-left-radius:20rpx;
-border-top-right-radius:20rpx;
-position:absolute;
-width:100%; top:0rpx;background:white;z-index: 1;
+
+.clubHeaderName{
+  width: 100%;
+  height: 20%;
+  font-size: 11pt;
+  color:#525252;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+}
+
+.clubHeaderQQ{
+  width: 100%;
+  height: 20%;
+  font-size: 11pt;
+  color:#525252;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.noticeHeader{
+  font-size: 20pt;
+  text-align: center;
+  align-content: center;
+  margin-top: 80px;
+}
+
+.noticeInput{
+  font-size: 12pt;
+  width: 90%;
+  height: 300px;
+  text-align: left;
+  align-content: center;
+  display: flex;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border:solid 1px;
+}
+
+.noticeBtn{
+  margin-top: 30px;
+  align-content: center;
+  display: flex;
 }

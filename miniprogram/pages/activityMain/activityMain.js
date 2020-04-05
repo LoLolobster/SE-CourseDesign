@@ -11,7 +11,7 @@ Page({
 
     //后端传入数据
     realData: [],
-
+    globalNotice : "深切悼念抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞，4月4日所有社团活动暂时停止",
     clubFilter: [
       {
         text: 'Club1',
@@ -126,6 +126,12 @@ Page({
 
   },
 
+  //固定公告栏在顶部
+  onPageScroll: function (e) {//监听页面滚动
+    this.setData({
+      scrollTop: e.scrollTop
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

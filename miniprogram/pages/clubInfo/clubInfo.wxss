@@ -1,13 +1,4 @@
-/* miniprogram/pages/activityInfo/activityInfo.wxss */
-
-.background{
-  width: 100%;
-  height: 100%;
-  position:fixed; 
-  opacity: 0.3;
-  background-size:100% 100%;
-  z-index: -1;
-}
+/* miniprogram/pages/clubInfo/clubInfo.wxss */
 
 .imgStyle{
   width:100%;
@@ -28,11 +19,11 @@
   justify-content: center;
 } */
 
-.actInfoBlock{
+.clubInfoBlock{
   width: 100%;
   margin-top: 15px;
 }
-.actInfoTitle{
+.clubInfoTitle{
   width: 100%;
   height: 10%;
   display: flex;
@@ -40,7 +31,7 @@
   color: #737373;
 }
 
-.actInfoContent{
+.clubInfoContent{
   width: 100%;
   font-size: 14pt;
   color: #000;

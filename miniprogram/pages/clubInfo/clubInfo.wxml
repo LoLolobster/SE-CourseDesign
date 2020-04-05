@@ -1,0 +1,25 @@
+<!--miniprogram/pages/clubInfo/clubInfo.wxml-->
+<view class="imgStyle">
+    <image wx:if="{{clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image>
+    <image wx:else="{{clubImg}}" mode="aspectFill" class="clubIcon" src="{{clubImg}}" ></image>
+</view>
+
+<view class="clubInfoBlock">
+<label class="clubInfoTitle">社团名称</label>
+<label class="clubInfoContent">{{clubName}}</label>
+</view>
+
+<view class="clubInfoBlock">
+<label class="clubInfoTitle">社团信息</label>
+<label class="clubInfoContent">{{clubInfo}}</label>
+</view>
+
+<view class="clubInfoBlock">
+<label class="clubInfoTitle">社长姓名</label>
+<label class="clubInfoContent">{{clubHeaderName}}</label>
+</view>
+
+<view class="clubInfoBlock">
+<label class="clubInfoTitle">社长QQ</label>
+<label class="clubInfoContent">{{clubHeaderQQ}}</label>
+</view>
