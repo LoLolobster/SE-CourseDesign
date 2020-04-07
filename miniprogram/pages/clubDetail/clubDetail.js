@@ -36,9 +36,14 @@ Page({
   defaultJoin: function (e) {
     if (app.globalData.join == true) {
       // 点击退出
-      wx.navigateTo({
-        url: '../clubMain/clubMain'
+      app.globalData.join = false
+      wx.showToast({
+        title: '已退出社团',
+        icon: 'succes',
+        duration: 1000,
+        mask: true
       })
+      this.onShow()
     } else {
       wx.showToast({
         title: '成功加入社团',
