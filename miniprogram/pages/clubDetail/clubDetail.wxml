@@ -1,0 +1,16 @@
+<view class="clubWrap">
+    <view class="clubMe" >
+        <image src="{{clubImage}}" style="width:68px;height:68px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;" ></image>
+        <view class="clubInfo">
+            <text>社团名: {{clubName}}</text>
+        </view>
+    </view>
+    <!-- 列表 -->
+    <van-cell-group>
+      <van-cell center title="社团介绍" size="large" value="{{clubIntro}}"/>
+      <van-cell center title="社团成员" size="large" is-link />
+      <van-cell center title="社团活动" size="large" is-link/>
+      <van-cell center title="社团公告" size="large" is-link/>
+    </van-cell-group>
+    <button type="default"  bindtap="defaultJoin"> {{operation}} </button>
+</view>

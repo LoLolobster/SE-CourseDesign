@@ -155,6 +155,14 @@ Page({
     })
   },
 
+  navigateTo: function (e) {
+
+    wx.navigateTo({
+      url: '../clubDetail/clubDetail'
+    })
+
+  },
+
   //切换tab标签事件
   onChange: function (event) {
     wx.showToast({

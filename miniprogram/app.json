@@ -13,7 +13,8 @@
     "pages/activityInfo-admin/activityInfo-admin",
     "pages/clubInfo-admin/clubInfo-admin",
     "pages/myAdmin/myAdmin",
-    "pages/clubInfo/clubInfo"
+    "pages/clubInfo/clubInfo",
+    "pages/clubDetail/clubDetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -62,7 +63,10 @@
     "van-checkbox": "../dist/checkbox",
     "van-radio": "../dist/radio",
     "van-picker": "../dist/picker",
-    "van-notice-bar": "../dist/notice-bar"
+    "van-notice-bar": "../dist/notice-bar",
+    "van-cell": "../dist/cell",
+    "van-cell-group": "../dist/cell-group"
+
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"
