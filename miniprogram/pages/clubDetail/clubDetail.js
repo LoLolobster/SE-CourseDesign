@@ -40,7 +40,15 @@ Page({
         url: '../clubMain/clubMain'
       })
     } else {
+      wx.showToast({
+        title: '成功加入社团',
+        icon: 'succes',
+        duration: 1000,
+        mask: true
+      })
+      app.globalData.join = true
       // 点击加入
+      this.onShow()
       // wx.navigateTo({
       //   //这个还没写
       //   url: '../join/join'
