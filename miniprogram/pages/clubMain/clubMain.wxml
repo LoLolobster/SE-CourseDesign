@@ -33,18 +33,18 @@
 
 
     <view class="container">
-      <view class='xiangqing' wx:for="{{details}}" bindtap="navigateTo">
+      <view class='xiangqing' wx:for="{{realData}}" bindtap="navigateTo">
         <view class='xiangqing_img'>
-          <image src='{{item.img}}'></image>
+          <image src='{{item.clubImg}}'></image>
         </view>
         <view class='xiangqing_info'>
           <text class='zi'>推荐</text>
-          <text class='title'>{{item.title}}</text>
+          <text class='title'>{{item.clubName}}</text>
           <view class='key'>
-            <text wx:for="{{item.world}}" class='text{{index}}'>{{item.message}}</text>
+            <text wx:for="{{item.tag}}" class='text{{index}}'>{{item}}</text>
           </view>
           <view class='prix'>
-            <text>成员：{{item.number}}\n</text>
+            <text>成员：{{item.memberCount}}\n</text>
             <text class='prix1'>综合评分：{{item.score}}</text>
           </view>
         </view>

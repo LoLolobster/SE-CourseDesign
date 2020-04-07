@@ -1,4 +1,5 @@
 // miniprogram/pages/club/club.js
+
 Page({
 
   /**
@@ -172,8 +173,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    //获取用户（test1）推荐社团信息列表
+   let that = this
+   wx.cloud.callFunction({
+     name : "getRecomClubInfo",
+     success :function(res) {
+       console.log(res)
+       that.setData({
+         realData : res.result.clubInfoList
+       })
+     }
+   })
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
