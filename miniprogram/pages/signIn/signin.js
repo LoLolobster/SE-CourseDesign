@@ -138,6 +138,11 @@ Page({
     })
   },
 
+  //注册按钮点击事件
+  _handlerSignUp:function(){
+       wx.navigateTo({
+        url: '../signup/signup'})
+  },
   /**
    * 获取缓存：是否记住密码，并在页面加载时处理相应逻辑（输入框，复选框填充）
   */

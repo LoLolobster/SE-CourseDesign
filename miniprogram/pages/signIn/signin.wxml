@@ -33,7 +33,7 @@
       <van-button type="primary" class="signinBtn" size="large" round="ture" bind:click="_handlerLogin" disabled='{{btnDisabled}}'>登录</van-button>  
     </view>  
     <view class="signUpBtnView">  
-      <van-button type="primary" class="signUpBtn" size="large"  round="ture">注册</van-button>  
+      <van-button type="primary" class="signUpBtn" size="large" round="ture" bind:click="_handlerSignUp">注册</van-button>  
     </view> 
     </form>
   
