@@ -10,7 +10,12 @@ Page({
     clubHeaderName: "",
     clubHeaderQQ: ""
   },
-
+  onClickRight : function(e){
+    wx.showToast({
+      title: '报名成功',
+      icon: 'success'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

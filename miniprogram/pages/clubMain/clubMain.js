@@ -142,6 +142,7 @@ Page({
     var info = {
       "clubName": e.currentTarget.dataset.item.clubName,
       "clubImg": e.currentTarget.dataset.item.clubImg,
+      "clubInfo": e.currentTarget.dataset.item.clubInfo,
       "clubHeaderName": e.currentTarget.dataset.item.clubHeaderName,
       "clubHeaderQQ": e.currentTarget.dataset.item.clubHeaderQQ,
     };

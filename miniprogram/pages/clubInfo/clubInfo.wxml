@@ -1,4 +1,11 @@
 <!--miniprogram/pages/clubInfo/clubInfo.wxml-->
+
+
+<van-nav-bar
+    title="{{ clubName }}"
+    right-text="报名"
+    bind:click-right="onClickRight"/>
+
 <view class="imgStyle">
     <image wx:if="{{clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image>
     <image wx:else="{{clubImg}}" mode="aspectFill" class="clubIcon" src="{{clubImg}}" ></image>
