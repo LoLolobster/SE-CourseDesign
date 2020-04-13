@@ -1,0 +1,34 @@
+<view class="container">
+<view class="head">
+  <view class="fixedInfo">头像</view>
+  <view class="avatar">
+    <image class="n" bindtap="chooseimage" src="{{avatar}}"></image>
+    <image class="a" src="{{head}}"/>
+  </view>
+</view>
+<view class="nickName"> 
+<view class="fixedInfo">昵称</view>
+<input class="inputText" bindinput="nickNameInput" value="{{nickName}}"></input>
+</view>
+<view class="sex">
+  <view class="fixedInfo">性别</view>
+  <view class="radio">
+   <radio-group class="radio-group" bindchange="radioChange">
+     <label class="radio" wx:for="{{items}}">
+       <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+     </label>
+   </radio-group>
+  </view>
+</view>
+<view class="area">
+  <view class="fixedInfo">地址</view>
+<input class="inputText" bindinput="addressInput" value="{{province}}省{{city}}市"></input>
+</view>
+<view class="signature">
+  <view >个性签名</view>
+  <input class="inputText" bindinput="signatureInput" value="{{signature}}"></input>
+</view>
+<view class="save"><van-button type="primary" round='true' bindtap="save">保存</van-button></view>
+</view>
+
+

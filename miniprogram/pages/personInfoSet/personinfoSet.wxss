@@ -1,0 +1,153 @@
+/* miniprogram/pages/personInfo/personinfo.wxss */
+.container{
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  overflow-y: scroll;
+}
+.navhead{
+  width: 100%;
+  height: 10rpx;
+  line-height: 150rpx;
+  position: relative;
+}
+.navbar{
+  width: 100%;
+  margin-bottom: 10rpx;
+}
+.head{
+  width: 100%;
+  height: 150rpx;
+  line-height: 150rpx;
+  display: flex;
+  position: relative;
+}
+.head::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: scaleY(.5);
+  background-color: #9D9D9D;
+}
+.inputText{
+   width:350rpx;
+   margin-left: 220rpx;
+   height: 100%;
+}
+.avatar{
+  margin-left: 80rpx;
+
+}
+.nickName{
+  display: flex;
+  width: 100%;
+  height: 150rpx;
+  line-height: 150rpx;
+  vertical-align: middle;
+  position:relative;
+}
+.nickName::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: scaleY(.5);
+  background-color: #9D9D9D;
+}
+.sex{
+  width: 100%;
+  height: 150rpx;
+  line-height: 150rpx;
+  display: flex;
+  justify-content:space-between;
+  position: relative;
+}
+.sex::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: scaleY(.5);
+  background-color: #9D9D9D;
+}
+.area{
+  display: flex;
+  width: 100%;
+  height: 150rpx;
+  line-height: 150rpx;
+  vertical-align: middle;
+  position:relative;
+}
+.area::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: scaleY(.5);
+  background-color: #9D9D9D;
+}
+.areaCell{
+  width: 100%;
+  height:100%;
+  display: flex;
+}
+.signature{
+  display: flex;
+  width: 100%;
+  height: 150rpx;
+  line-height: 150rpx;
+  position: relative;
+}
+.signature::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: scaleY(.5);
+  background-color: #9D9D9D;
+}
+.container text{
+  float: left;
+  color: #7B7B7B;
+  vertical-align: middle;
+  margin-left: 20rpx;
+}
+
+
+.a{
+  float: right;
+  width: 100rpx;
+  height: 100rpx;
+  margin-top:25rpx;
+  margin-right: 30rpx;
+  border-radius: 50%;
+}
+.fixedInfo{
+  width:180rpx;
+}
+.n{
+  float: right;
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 25rpx;
+  vertical-align: middle;
+}
+.save{
+    margin-top: 100rpx;
+    vertical-align: middle;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}

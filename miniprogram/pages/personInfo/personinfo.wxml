@@ -1,33 +1,20 @@
-<view class="container">
-<view class="head">
-  <van-cell>头像</van-cell>
-  <view class="real">
-    <image class="n" bindtap="chooseimage" src="/images/signin/1.jpg"></image>
-    <image class="a" src="{{head}}"/>
+<!--miniprogram/pages/about/about.wxml-->
+<view class="container"> 
+  <view class="login-icon">  
+    <image class="login-img" src="{{avatar}}"></image>  
   </view>
+  <view class="nickName">{{nickName}}</view>
+<view class="collapse">
+  <van-collapse  value="{{ activeNames }}" bind:change="onChange" >
+     <van-collapse-item  title="个人信息" name="1" >  
+     <view class="colContent"><text class="sds">性别:{{sex}}</text> </view>
+     <view class="colContent"><text class="sds">地区:{{province}}{{city}}</text></view>
+     <view class="colContent"><text class="sds">个性签名:{{signature}}</text></view>
+    </van-collapse-item>
+  <van-collapse-item title="他的社团" name="2"> 
+     <view class="colContent"><text class="sds">{{clublist}}</text></view>
+  </van-collapse-item>
+
+</van-collapse>
 </view>
-<view class="nickName"> 
-<van-cell>昵称</van-cell>
-<input class="inputText" bindinput="nickNameInput" value="{{nickName}}"></input>
-</view>
-<view class="sex">
-  <van-cell>性别</van-cell>
-  <view class="real">
-   <radio-group class="radio-group" bindchange="radioChange">
-     <label class="radio" wx:for="{{items}}">
-       <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
-     </label>
-   </radio-group>
-  </view>
-</view>
-<view class="area">
-    <van-cell>地址</van-cell>
-  <view class="real">{{province}}省{{city}}市</view>
-</view>
-<view class="signature">
-  <van-cell>个性签名</van-cell>
-  <input class="inputText" bindinput="signatureInput" value="{{signature}}"></input>
-  <view class="real"></view>
-</view>
-<view class="save"><van-button type="primary" round='true'>保存</van-button></view>
 </view>
