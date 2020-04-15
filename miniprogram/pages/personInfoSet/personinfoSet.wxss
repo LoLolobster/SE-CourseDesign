@@ -21,6 +21,7 @@
   line-height: 150rpx;
   display: flex;
   position: relative;
+  justify-content: space-between;
 }
 .head::after{
   content: '';
@@ -34,12 +35,13 @@
 }
 .inputText{
    width:350rpx;
-   margin-left: 220rpx;
    height: 100%;
+   text-align: right;
+   margin-right: 30rpx
 }
 .avatar{
   margin-left: 80rpx;
-
+  margin-right: 30rpx;
 }
 .nickName{
   display: flex;
@@ -48,6 +50,7 @@
   line-height: 150rpx;
   vertical-align: middle;
   position:relative;
+  justify-content: space-between;
 }
 .nickName::before{
   content: '';
@@ -84,6 +87,7 @@
   line-height: 150rpx;
   vertical-align: middle;
   position:relative;
+  justify-content: space-between;
 }
 .area::before{
   content: '';
@@ -106,6 +110,7 @@
   height: 150rpx;
   line-height: 150rpx;
   position: relative;
+  justify-content: space-between;
 }
 .signature::after{
   content: '';
@@ -124,7 +129,12 @@
   margin-left: 20rpx;
 }
 
-
+.section{
+  margin-right: 30rpx;
+}
+.radioarea{
+  margin-right: 30rpx;
+}
 .a{
   float: right;
   width: 100rpx;
@@ -136,6 +146,7 @@
 .fixedInfo{
   width:180rpx;
 }
+
 .n{
   float: right;
   width: 100rpx;
@@ -151,3 +162,4 @@
     flex-direction: row;
     justify-content:center;
 }
+

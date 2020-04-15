@@ -12,8 +12,8 @@
 </view>
 <view class="sex">
   <view class="fixedInfo">性别</view>
-  <view class="radio">
-   <radio-group class="radio-group" bindchange="radioChange">
+  <view class="radioarea">
+    <radio-group class="radio-group" bindchange="radioChange">
      <label class="radio" wx:for="{{items}}">
        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
      </label>
@@ -22,13 +22,20 @@
 </view>
 <view class="area">
   <view class="fixedInfo">地址</view>
-<input class="inputText" bindinput="addressInput" value="{{province}}省{{city}}市"></input>
+ <view class="section">
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+      {{region[0]}}，{{region[1]}}，{{region[2]}}
+    </view>
+  </picker>
+</view>
 </view>
 <view class="signature">
   <view >个性签名</view>
   <input class="inputText" bindinput="signatureInput" value="{{signature}}"></input>
 </view>
 <view class="save"><van-button type="primary" round='true' bindtap="save">保存</van-button></view>
+
 </view>
 
 

@@ -6,14 +6,14 @@ Page({
     nickName: '尔康',//昵称
     avatar: "cloud://mall-x3k10.6d61-mall-x3k10-1301527969/myPhoto.jpg",//头像
     sex: '男',
-    province: '湖北',
-    city: '武汉',
     signature: '    hello world',
     items: [
       { name: 'man', value: '男' },
       { name: 'femail', value: '女' },
       { name: 'bm', value: '保密' }
-    ]
+    ],
+    region: ['湖北省', '武汉市', '洪山区'],
+    customItem: ''
   },
   chooseimage: function () {//点击头像事件 未对数据库进行操作
     var _this = this;
@@ -32,11 +32,12 @@ Page({
       },
     })
   },
-  showPopup() {
-    this.setData({ show: true });
-  },
-  onClose() {
-    this.setData({ show: false });
+  bindRegionChange: function (e) {
+    console.log(e)
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
   },
   nicknameInput: function () {//昵称改变事件 数据库操作
   },
