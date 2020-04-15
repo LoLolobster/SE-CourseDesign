@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/personInfo/personinfo",
     "pages/personInfoSet/personinfoSet",
     "pages/signIn/signin",
     "pages/clubMain/clubMain",
-    "pages/personInfo/personinfo",
+
     "pages/about/about",
     "pages/activityMain/activityMain",
     "pages/index/index",
@@ -66,7 +67,11 @@
     "van-picker": "../dist/picker",
     "van-notice-bar": "../dist/notice-bar",
     "van-cell": "../dist/cell",
-    "van-cell-group": "../dist/cell-group"
+    "van-cell-group": "../dist/cell-group",
+      "van-popup": "../dist/popup",
+      "van-area": "../dist/area",
+      "van-collapse": "../dist/collapse",
+      "van-collapse-item": "../dist/collapse-item"
 
   },
   "sitemapLocation": "sitemap.json",

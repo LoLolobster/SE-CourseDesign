@@ -42,7 +42,6 @@ page{
 .van
 
 .colContent{
-
   margin-left: 20rpx;
   display: flex;
   justify-content:left;
