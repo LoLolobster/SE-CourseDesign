@@ -1,43 +1,61 @@
-// pages/personinfo/perisoninfo.js
+// miniprogram/pages/clubMember/clubmember.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   /* nickName:'尔康',
-    avatar:"cloud://mall-x3k10.6d61-mall-x3k10-1301527969/myPhoto.jpg",
-    activeNames: ['1'],
-    sex: '男',
-    province: '湖北',
-    city: '武汉',
-    signature: 'hello world',
-    clublist:'家里蹲社团',*/
-    nickName:'',
-    avatar:"",
-    activeNames: ['1'],
-    sex: '',
-    province: '',
-    city: '',
-    signature: '',
-    clublist:'',
+
+    shezhang: [{
+      "name": '张三',
+    },
+    {
+      "name": '李四',
+    },
+    {
+      "name": '王五',
+    }],
+
+    fushezhang: [{
+      "name": '张三',
+    }, 
+    {
+      "name": '李四',
+    }],
+    
+    sheyuan: [{
+      "name": '张三',
+    },
+    {
+      "name": '李四',
+    }],
   },
+
+
+
 
   onChange(event) {
     this.setData({
       activeNames: event.detail
     });
   },
+  gotoPerson: function (e) {
+    //此处查询数据库，得到其他信息项
+    var info = {
+      "name":e.currentTarget.dataset.item.name 
+    };
+    wx.setStorageSync('perInfo', info);
+    wx.navigateTo({
+      url: '../personInfo/personinfo'
+    })
 
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var info = wx.getStorageSync('perInfo');
-    this.setData({
-      nickName: info.name,
-    })
+
   },
 
   /**

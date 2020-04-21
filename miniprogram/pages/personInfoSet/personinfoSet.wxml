@@ -34,7 +34,7 @@
   <view >个性签名</view>
   <input class="inputText" bindinput="signatureInput" value="{{signature}}"></input>
 </view>
-<view class="save"><van-button type="primary" round='true' bindtap="save">保存</van-button></view>
+<view class="save"><van-button type="primary" round='true' bindclick="save">保存</van-button></view>
 
 </view>
 

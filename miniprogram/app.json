@@ -1,9 +1,9 @@
 {
   "pages": [
-
-    "pages/personInfoSet/personinfoSet",
     "pages/signIn/signin",
+    "pages/personInfoSet/personinfoSet",
     "pages/clubMain/clubMain",
+    "pages/clubMember/clubmember",
     "pages/personInfo/personinfo",
     "pages/about/about",
     "pages/activityMain/activityMain",
@@ -72,8 +72,7 @@
     "van-area": "../dist/area",
     "van-collapse": "../dist/collapse",
     "van-collapse-item": "../dist/collapse-item"
-
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style":"v2"
 }

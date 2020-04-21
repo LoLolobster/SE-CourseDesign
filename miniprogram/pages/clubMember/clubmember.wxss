@@ -1,0 +1,47 @@
+/* miniprogram/pages/clubMember/clubmember.wxss */
+page{
+  overflow: hidden;
+}
+
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  box-sizing:border-box;
+} 
+
+
+.collapse{
+  margin-top: 100rpx;
+}
+
+.lname{
+  height: 50rpx;
+  font-size: 30rpx;
+  color: black;
+}
+
+.vcell{
+width: 100%;
+}
+
+.info{
+  height:30rpx;
+  width:20rpx;
+  margin-right: 100rpx;
+}
+.colContent{
+  display: flex;
+  justify-content:space-between;
+  height: 100rpx;
+  width: 100%;
+  margin-top: 0 auto;
+}
+
+.sds{
+  font-size: 30rpx;
+  
+}
+

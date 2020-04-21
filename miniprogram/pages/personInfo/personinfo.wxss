@@ -1,4 +1,4 @@
-/* miniprogram/pages/about/about.wxss */
+/* miniprogram/pages/personinfo/personinfo.wxss */
 page{
   overflow: hidden;
 

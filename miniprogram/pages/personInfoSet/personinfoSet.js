@@ -6,7 +6,7 @@ Page({
     nickName: '尔康',//昵称
     avatar: "cloud://mall-x3k10.6d61-mall-x3k10-1301527969/myPhoto.jpg",//头像
     sex: '男',
-    signature: '    hello world',
+    signature: 'hello world',
     items: [
       { name: 'man', value: '男' },
       { name: 'femail', value: '女' },
@@ -39,17 +39,24 @@ Page({
       region: e.detail.value
     })
   },
-  nicknameInput: function () {//昵称改变事件 数据库操作
+  nicknameInput: function (e) {//昵称改变事件 数据库操作
+    this.setData({
+      nickName: e.detail.value
+    })
   },
-  signitureInput: function () {//签名改变事件
+  signitureInput: function (e) {//签名改变事件
+    this.setData({
+      signature: e.detail.value
+    })
   },
+  
   save: function () {//存数据
   },
   onClickLeft() {
     wx.showToast({ title: '点击返回', icon: 'none' });
   },
   onLoad: function () {
-    var that = this;
+    /*var that = this;
     wx.getUserInfo({
       success: function (res) {
         // success
@@ -87,7 +94,7 @@ Page({
         console.log(this.province)
       }
 
-    })
+    })*/
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

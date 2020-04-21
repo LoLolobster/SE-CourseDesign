@@ -1,0 +1,36 @@
+<!--miniprogram/pages/about/about.wxml-->
+<view class="container"> 
+<view class="collapse">
+  <van-collapse  value="{{ activeNames }}" bind:change="onChange" >
+     <van-collapse-item  title="社长" name="1" >  
+      <block class="listView" wx:for="{{shezhang}}" wx:key="index">
+        <view class="colContent"  data-item="{{item}}"  bindtap="gotoPerson">
+        <van-cell class="vcell" title="{{item.name}}" >
+         <van-icon slot="right-icon" name="/images/detail.png" class="custom-icon"  />
+        </van-cell>
+        </view>
+      </block>
+    </van-collapse-item>
+  <van-collapse-item title="副社长" name="2"> 
+        <block class="listView" wx:for="{{fushezhang}}" wx:key="index">
+        <view class="colContent"  data-item="{{item}}"  bindtap="gotoPerson" >
+        <van-cell class="vcell" title="{{item.name}}" >
+         <van-icon slot="right-icon" name="/images/detail.png" class="custom-icon"/>
+        </van-cell>
+        </view>
+      </block>
+  </van-collapse-item>
+  <van-collapse-item title="社员" name="3"> 
+        <block class="listView" wx:for="{{sheyuan}}" wx:key="index">
+        <view class="colContent"  data-item="{{item}}" bindtap="gotoPerson">
+        <van-cell class="vcell" title="{{item.name}}" >
+         <van-icon slot="right-icon" name="/images/detail.png" class="custom-icon" />
+        </van-cell>
+        </view>
+      </block>
+  </van-collapse-item>
+
+
+</van-collapse>
+</view>
+</view>

@@ -154,6 +154,7 @@
   margin-top: 25rpx;
   vertical-align: middle;
 }
+
 .save{
     margin-top: 100rpx;
     vertical-align: middle;
