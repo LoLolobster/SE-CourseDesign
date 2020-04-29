@@ -41,6 +41,7 @@ Page({
       "activityName": info.activityName,
       "activityLocation": info.activityLocation,
       "activityTime": info.activityTime,
+      "activityContent" : info.activityContent
     });
     wx.removeStorageSync('activityInfo');
   },
