@@ -16,12 +16,12 @@
 
 <view class="clubInfoBlock">
 <label class="clubInfoTitle">社长姓名</label>
-<label class="clubInfoContent">{{clubHeaderName}}</label>
+<label class="clubInfoContent">{{managerName}}</label>
 </view>
 
 <view class="clubInfoBlock">
 <label class="clubInfoTitle">社长QQ</label>
-<label class="clubInfoContent">{{clubHeaderQQ}}</label>
+<label class="clubInfoContent">{{managerQQ}}</label>
 </view>
 
 <view class="btnBlock">
