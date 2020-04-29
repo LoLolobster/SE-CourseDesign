@@ -21,7 +21,10 @@ App({
       hasNameInput : false, //登录页面输入框是否有数据
       hasPwdInput : false,   //用于控制登录界面登录按钮的启用
       remPwd : false, //是否记住密码
-      autoLogin : false //是否自动登录
+      autoLogin : false, //是否自动登录
+      userID : null, //登录用户ID
+      userName : null //登录用户名
+
     }
   }
 })
