@@ -112,7 +112,8 @@ Page({
             "activityName": activity.activityName,
             "activityTime": activity.activityTime,
             "activityLocation": activity.activityLocation,
-            "clubName": activity.publishedActivities[0].clubName
+            "clubName": activity.publishedActivities[0].clubName,
+            "activityContent" : activity.activityContent
           }
           //将信息添加到数据容器
           cloudData.push(obj)
