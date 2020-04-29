@@ -1,10 +1,10 @@
 <!--miniprogram/pages/myAdmin/myAdmin.wxml-->
 <van-tabs active="{{ 0 }}" bind:change="onChange">
 
-  <van-tab title="活动审批" info="{{newActivityNum}}">
+  <van-tab title="活动审批" info="{{pendingActivityNum}}">
 
     <!-- 列表视图-->
-    <block class="listView" wx:for="{{newActivity}}" wx:key="index">
+    <block class="listView" wx:for="{{pendingActivity}}" wx:key="index">
       <view class="cardView" bindtap="gotoActivityAdmin" data-item="{{item}}">
 
         <!-- 左侧图片 -->
@@ -28,9 +28,9 @@
 
   </van-tab>
 
-  <van-tab title="社团审批" info="{{newClubNum}}">
+  <van-tab title="社团审批" info="{{pendingClubNum}}">
     <!-- 列表视图-->
-    <block class="listView" wx:for="{{newClub}}" wx:key="index">
+    <block class="listView" wx:for="{{pendingClub}}" wx:key="index">
       <view class="cardView" bindtap="gotoClubAdmin" data-item="{{item}}">
 
         <!-- 左侧图片 -->
@@ -43,8 +43,8 @@
         <view style="display:flex;flex-direction:column;margin:5px">
             <label class="club-clubName">{{item.clubName}}</label>
             <label class="clubInfo">{{item.clubInfo}}</label>
-            <label class="clubHeaderName">{{item.clubHeaderName}}</label>
-            <label class="clubHeaderQQ">{{item.clubHeaderQQ}}</label>
+            <label class="clubHeaderName">{{item.managerName}}</label>
+            <label class="clubHeaderQQ">{{item.managerQQ}}</label>
           <!-- <view style="display:flex;flex-direction:row;height:20px;margin-top:8px"> -->
         </view>
 
