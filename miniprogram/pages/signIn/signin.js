@@ -90,6 +90,10 @@ Page({
       if(res.data.length > 0){
         //密码匹配成功
         if(res.data[0].userPwd === inputPwd){
+          //设置全局变量userID
+          app.globalData.userID = res.data[0]._id
+          //将全局变量userName设置为当前登录的用户名
+          app.globalData.userName = res.data[0].userName
           //如果记住密码——缓存用户名与密码
           if (app.globalData.remPwd) {
             wx.setStorage({
@@ -138,47 +142,13 @@ Page({
     })
   },
 
-  //注册按钮点击事件
+  /**
+   * 注册按钮点击事件
+  */
   _handlerSignUp:function(){
        wx.navigateTo({
         url: '../signup/signup'})
   },
-  /**
-   * 获取缓存：是否记住密码，并在页面加载时处理相应逻辑（输入框，复选框填充）
-  */
-  procRememberPwd : function() {
-    let that = this
-    //获取缓存：上次记住密码是否被勾选
-    wx.getStorage({
-      key: 'remPwdChecked',
-      success: function (res) {
-        that.setData({ remPwdChecked: res.data })
-        console.log("上次是否勾选记住密码", that.data.remPwdChecked)
-        //如果勾选
-        if (that.data.remPwdChecked) {
-          //获取缓存：用户名&密码，填充输入框
-          wx.getStorage({
-            key: 'userName',
-            success: function (res) {
-              that.setData({
-                storedName: res.data
-              })
-            },
-          })
-          wx.getStorage({
-            key: 'userPwd',
-            success: function (res) {
-              that.setData({
-                storedPwd: res.data,
-                btnDisabled: false //如果有缓存数据，登录按钮自动启用
-              })
-            },
-          })
-        }
-      },
-    })
-  },
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -196,10 +166,6 @@ Page({
           wx.switchTab({
             url: '../activityMain/activityMain',
           })
-        }
-        //如果上次未勾选自动登录
-        else{
-          
         }
       },
     })
