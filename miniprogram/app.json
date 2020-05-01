@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/personInfo/personinfo",
     "pages/signIn/signin",
     "pages/personInfoSet/personinfoSet",
     "pages/clubMain/clubMain",
     "pages/clubMember/clubmember",
-    "pages/personInfo/personinfo",
+
     "pages/about/about",
     "pages/activityMain/activityMain",
     "pages/index/index",

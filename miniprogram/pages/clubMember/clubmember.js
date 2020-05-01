@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+//TODO 从数据库中获取数据
     shezhang: [{
       "name": '张三',
     },
@@ -40,7 +40,7 @@ Page({
     });
   },
   gotoPerson: function (e) {
-    //此处查询数据库，得到其他信息项
+    //TODO 此处查询数据库，得到其他信息项
     var info = {
       "name":e.currentTarget.dataset.item.name 
     };

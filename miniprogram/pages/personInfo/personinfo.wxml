@@ -1,4 +1,5 @@
 <!--miniprogram/pages/about/about.wxml-->
+
 <view class="container"> 
   <view class="login-icon">  
     <image class="login-img" src="{{avatar}}"></image>  
@@ -14,7 +15,14 @@
   <van-collapse-item title="他的社团" name="2"> 
      <view class="colContent"><text class="sds">{{clublist}}</text></view>
   </van-collapse-item>
-
-</van-collapse>
+  </van-collapse>
 </view>
+    <view wx:if="{{isShezhang}}">     
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}"> <van-button type="primary"      class="dissmissBtn" size="large" round="ture" >任职</van-button>
+    </picker> 
+    </view>  
+    <view wx:if="{{shezhang}}">  
+      <van-button type="primary" class="serveBtn" size="large" round="ture" bind:click="handlerServe">辞退</van-button>  
+    </view> 
+    <van-toast id="van-toast" />
 </view>
