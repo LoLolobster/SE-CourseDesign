@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activityContent:"武汉大学环绕东湖水，坐拥珞珈山，校园环境优美，风景如画，被誉为“中国最美丽的大学”。学校占地面积5195亩，建筑面积266万平方米。中西合璧的宫殿式建筑群古朴典雅，巍峨壮观，26栋早期建筑被列为“全国重点文物保护单位。"
+
   },
   acceptBtn: function (e) {
     wx.showToast({
@@ -37,6 +37,7 @@ Page({
       "activityName": info.activityName,
       "activityLocation": info.activityLocation,
       "activityTime": info.activityTime,
+      "activityContent" : info.activityContent
     });
     wx.removeStorageSync('activityInfo-admin');
   },

@@ -185,6 +185,9 @@ Page({
    let that = this
    wx.cloud.callFunction({
      name : "getRecomClubInfo",
+     data : {
+       userID : getApp().globalData.userID
+     },
      success :function(res) {
        console.log(res)
        that.setData({

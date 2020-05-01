@@ -7,8 +7,8 @@ Page({
   data: {
     clubName: "",
     clubInfo: "",
-    clubHeaderName: "",
-    clubHeaderQQ: ""
+    managerName: "",
+    managerQQ: ""
   },
 
   acceptBtn : function(e){
@@ -39,8 +39,8 @@ Page({
       "clubName": info.clubName,
       "clubImg": info.clubImg,
       "clubInfo": info.clubInfo,
-      "clubHeaderName": info.clubHeaderName,
-      "clubHeaderQQ": info.clubHeaderQQ,
+      "managerName": info.managerName,
+      "managerQQ": info.managerQQ,
     });
     wx.removeStorageSync('clubInfo-admin');
   },
