@@ -1,13 +1,17 @@
 const app = getApp();
 Page({
   data: {
-      //此处需要动态读取社团信息,现在先写死
-      clubName:"文学社",
-      clubIntro:"指点江山，激扬文字，粪土当年万户侯！",
-      clubImage: "/images/bg/WHU2.JPEG",
+      clubName:"",
+      clubIntro:"",
+      clubImage: "",
   },
   onLoad: function (options) {
-    // 页面初始化 options为页面跳转所带来的参数
+    let clubDetail_info = wx.getStorageSync("clubDetail")
+    this.setData({
+      clubName : clubDetail_info.clubName,
+      clubIntro : clubDetail_info.clubInfo,
+      clubImage : clubDetail_info.clubImg
+    })
   },
   onReady: function () {
     // 页面渲染完成
@@ -15,7 +19,6 @@ Page({
   onShow: function () {
     // 页面显示.
     var join = app.globalData.join;
-    var userInfo = wx.getStorageSync('clubInfo');
     if (join == true) {
       this.setData({
         operation: '退出社团',
