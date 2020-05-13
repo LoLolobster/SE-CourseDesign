@@ -1,7 +1,7 @@
 // pages/activityMain/activityMain.js
 // const app = getApp()
 
-
+const cloudData = []
 Page({
 
   /**
@@ -11,68 +11,59 @@ Page({
 
     //后端传入数据
     realData: [],
-    globalNotice : "深切悼念抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞，4月4日所有社团活动暂时停止",
-    clubFilter: [
-      {
-        text: 'Club1',
-        value: 1
-      },
-      {
-        text: 'Club2',
-        value: 2
-      }
-    ],
+    globalNotice : "",
+    clubFilter: [],
     dateFilter: [
       {
+        text: '所有',
+        value: '所有'
+      },
+      {
         text: '一天内',
-        value: 'b'
+        value: '一天内'
       },
       {
         text: '三天内',
-        value: 'c'
+        value: '三天内'
       },
 
       {
         text: '一周内',
-        value: 'd'
+        value: '一周内'
       },
 
       {
         text: '一月内',
-        value: 'e'
+        value: '一月内'
       }
     ],
+
     locationFilter : [
       {
+        text: '所有',
+        value: 0
+      },
+      {
         text: '文理学部',
-        value: 1
+        value: '文理学部'
       },
       {
         text: '信息学部',
-        value: 2
+        value: '信息学部'
       },
       {
         text: '工学部',
-        value: 3
+        value: '工学部'
       },
       {
         text: '医学部',
-        value: 4
+        value: '医学部'
       }
     ]
-
-
-
   },
 
   gotoActivity: function(e) {
-    // var index = e.currentTarget.testData.index;
-    // var id = this.data.testData[index].id;
-    // wx.setStorage({
-    //   key:"id",
-    //   data:id
-    // })
-    
+
     var info = {
       "clubName": e.currentTarget.dataset.item.clubName, 
       "clubImg" : e.currentTarget.dataset.item.clubImg,
@@ -89,17 +80,86 @@ Page({
 
   },
 
-  item1click: function(e){
-    var index = parseInt(e.currentTarget.dataset.index);
-    console.log(index);
+  //按社团名筛选
+  onClubNameChange : function(e){
+    let detail = e.detail
+    let newActivityList = []
+    for (let ac of cloudData){
+      if(ac.clubName === detail || detail==="所有"){
+        newActivityList.push(ac)
+      }
+    }
+    this.setData({
+      realData : newActivityList
+    })
   },
+
+  //按时间筛选
+  onTimeChange : function(e){
+      let detail = e.detail
+      let newActivityList = []
+      let now = Date.now()
+    for (let ac of cloudData) {
+      let activityTS = Date.parse(ac.activityTime) //字符串日期转换为时间戳
+      switch (detail){
+        case "所有":
+          newActivityList.push(ac)
+          break;
+        case "一天内":
+          if (now - activityTS <= 86400000){
+            newActivityList.push(ac)
+          }
+          break;
+        case "三天内":
+          if (now - activityTS <= 3 * 86400000) {
+            newActivityList.push(ac)
+          }
+          break;
+        case "一周内":
+          if (now - activityTS <= 7 * 86400000) {
+            newActivityList.push(ac)
+          }
+          break;
+        case "一月内":
+          if (now - activityTS <= 30 * 86400000) {
+            newActivityList.push(ac)
+          }
+          break;
+        default:
+        break;
+      }
+    }
+   this.setData({
+     realData : newActivityList
+   })
+  },
+
+  //按地点（学部）筛选
+  onLocationChange : function(e){
+    console.log(e)
+    let detail = e.detail
+    let newActivityList = []
+    for (let ac of cloudData) {
+      if (ac.department === detail || detail==="所有") {
+        newActivityList.push(ac)
+      }
+    }
+    this.setData({
+      realData: newActivityList
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     let that = this
     //数据容器
-    let cloudData = []
+    let clubNames = []
+    clubNames.push({
+      text: "所有",
+      value: "所有"
+    })
     //调用云函数获取活动数据
     wx.cloud.callFunction({
       name: 'getActivityMainInfo',
@@ -113,16 +173,31 @@ Page({
             "activityTime": activity.activityTime,
             "activityLocation": activity.activityLocation,
             "clubName": activity.publishedActivities[0].clubName,
-            "activityContent" : activity.activityContent
+            "activityContent" : activity.activityContent,
+            "department": activity.department
           }
           //将信息添加到数据容器
           cloudData.push(obj)
+          clubNames.push({
+            text : obj.clubName,
+            value: obj.clubName
+          })
         }
         //将数据容器赋值给小程序端
         that.setData({
-          realData: cloudData
+          realData: cloudData,
+          clubFilter : clubNames
         })
       }
+    })
+
+    //获取globalNotice
+    wx.cloud.callFunction({
+      name : "getGlobalNotice"
+    }).then(res => {
+      that.setData({
+        globalNotice : res.result.globalNotice.noticeContent
+      })
     })
 
   },

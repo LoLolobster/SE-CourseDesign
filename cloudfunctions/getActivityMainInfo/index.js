@@ -16,6 +16,9 @@ exports.main = async (event, context) => {
       foreignField: '_id',
       as: 'publishedActivities',
     })
+    .match({
+      state : "accepted"
+    })
     .end()
     .then(res => { console.log(res); data = res})
     .catch(err => console.log(err))
