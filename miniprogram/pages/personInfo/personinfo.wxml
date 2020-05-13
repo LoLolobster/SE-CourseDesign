@@ -17,12 +17,12 @@
   </van-collapse-item>
   </van-collapse>
 </view>
-    <view wx:if="{{isShezhang}}">     
+    <!-- <view wx:if="{{isShezhang}}">     
       <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}"> <van-button type="primary"      class="dissmissBtn" size="large" round="ture" >任职</van-button>
     </picker> 
     </view>  
     <view wx:if="{{shezhang}}">  
       <van-button type="primary" class="serveBtn" size="large" round="ture" bind:click="handlerServe">辞退</van-button>  
-    </view> 
+    </view>  -->
     <van-toast id="van-toast" />
 </view>

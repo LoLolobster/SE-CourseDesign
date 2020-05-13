@@ -33,6 +33,7 @@ page{
  display: flex;
  margin-top: 0 auto;
  justify-content: center;
+ color: #ffffff;
 }
 
 .collapse{

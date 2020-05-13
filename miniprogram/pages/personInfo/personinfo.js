@@ -21,9 +21,8 @@ Page({
     province: '',
     city: '',
     signature: '',
-    clublist:'',
-    position:'',//职位 社长 0/副社长 1/社员 2
-    isShezhang:1 ,//0显示，1不显示
+    clubList:[],
+    isShezhang:null ,
     array: ['社长', '副社长', '社员'],
   },
 
@@ -46,17 +45,39 @@ Page({
   //从数据库中获取{{shezhang}}的值，为1时显示按钮，否则隐藏
   //从数据库中读取用户数据
   onLoad: function (options) {
-    var info = wx.getStorageSync('perInfo');
-    this.setData({
-      nickName: info.name,
-      shezhang:1,
-      avatar: "",
-      activeNames: ['1'],
-      sex: '',
-      province: '',
-      city: '',
-      signature: '',
-      clublist: '',
+    // var info = wx.getStorageSync('perInfo');
+    // this.setData({
+    //   nickName: info.name,
+    //   shezhang:1,
+    //   avatar: "",
+    //   activeNames: ['1'],
+    //   sex: '',
+    //   province: '',
+    //   city: '',
+    //   signature: '',
+    //   clublist: '',
+    // })
+    let that = this
+    let personID = wx.getStorageSync("personInfo").personID
+    let isManager = wx.getStorageSync("personInfo").isManager
+    wx.cloud.callFunction({
+      "name":"getPersonInfo",
+      "data": {
+        "personID" : personID
+      }
+    }).then(res => {
+      console.log(res)
+      that.setData({
+        "nickName" : res.result.personInfo.userName,
+        "avatar": res.result.personInfo.userImg,
+        "activeNames" : [],
+        "sex": res.result.personInfo.gender,
+        "province": res.result.personInfo.address[0],
+        "city": res.result.personInfo.address[1],
+        "signature": res.result.personInfo.signature,
+        "isShezhang" : isManager,
+        "clubList": res.result.personInfo.clubList
+      })
     })
   },
   bindPickerChange: function (e) {
@@ -78,52 +99,5 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

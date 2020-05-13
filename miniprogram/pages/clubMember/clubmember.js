@@ -5,26 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-//TODO 从数据库中获取数据
     shezhang: [],
     sheyuan: [],
   },
-
-
-
 
   onChange(event) {
     this.setData({
       activeNames: event.detail
     });
   },
+
   gotoPerson: function (e) {
-    wx.setStorageSync("personInfo", { "personID": e.currentTarget.dataset.item.ID})
+    let personID = e.currentTarget.dataset.item.ID
+    if(personID === this.data.shezhang[0].ID) {
+      wx.setStorageSync("personInfo", { "personID": personID, "isManager" : true})
+    }
+    else {
+      wx.setStorageSync("personInfo", { "personID": personID, "isManager": false })
+    }
     wx.navigateTo({
-      url: '../personInfo/personinfo',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: '../personInfo/personinfo'
     })
   },
 
