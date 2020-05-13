@@ -18,7 +18,8 @@ Page({
       "activityName": e.currentTarget.dataset.item.activityName,
       "activityLocation": e.currentTarget.dataset.item.activityLocation,
       "activityTime": e.currentTarget.dataset.item.activityTime,
-      "activityContent" : e.currentTarget.dataset.item.activityContent
+      "activityContent" : e.currentTarget.dataset.item.activityContent,
+      "activityID": e.currentTarget.dataset.item.activityID
     };
 
     wx.setStorageSync('activityInfo-admin', info);
@@ -31,15 +32,15 @@ Page({
 
   gotoClubAdmin : function(e){
     var info = {
+      "clubID": e.currentTarget.dataset.item.clubID,
       "clubName": e.currentTarget.dataset.item.clubName,
       "clubImg": e.currentTarget.dataset.item.clubImg,
       "clubInfo": e.currentTarget.dataset.item.clubInfo,
+      "managerID": e.currentTarget.dataset.item.managerID,
       "managerName": e.currentTarget.dataset.item.managerName,
       "managerQQ": e.currentTarget.dataset.item.managerQQ,
     };
-
     wx.setStorageSync('clubInfo-admin', info);
-
     wx.navigateTo({
       url: '../clubInfo-admin/clubInfo-admin'
     })
@@ -62,8 +63,8 @@ Page({
     })
     .then(res => {
       that.setData({
-        pendingActivity : res.result.data,
-        pendingActivityNum: res.result.data.length
+        pendingActivity : res.result.returnData,
+        pendingActivityNum: res.result.returnData.length
       })
     })
     //获取审批中的社团信息
@@ -72,10 +73,10 @@ Page({
     })
     .then( res => {
       that.setData({
-        pendingClub : res.result.data,
-        pendingClubNum : res.result.data.length
+        pendingClub : res.result.returnData,
+        pendingClubNum : res.result.returnData.length
       })
-      console.log(res.result.data)
+
     })
   }
 })
