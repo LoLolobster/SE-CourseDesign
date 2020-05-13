@@ -20,8 +20,8 @@ exports.main = async (event, context) => {
   })
   .end()
   .then(res => {{
-    item = {}
     for (let i in res.list){
+      item = {}
       item.activityID = res.list[i]._id
       item.activityContent = res.list[i].activityContent
       item.activityLocation = res.list[i].activityLocation
