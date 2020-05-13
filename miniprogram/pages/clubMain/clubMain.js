@@ -6,17 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    realData: [],
-    globalNotice: "深切悼念抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞，4月4日所有社团活动暂时停止",
-    testData: [{
-      // tabs2: [0, 1],
-      "clubName": "足球社",
-      "clubHeaderName": "Messi",
-      "clubHeaderQQ": "1051302489",
-      "clubInfo": "武汉大学足球队",
-      "clubImg": ""
-    }],
-
+    recomClubList: [],
+    allClubList : [],
+    globalNotice: "",
+  
     //推荐社团 数据
     tabTxt: ['社团类型', '社团人数', '评分'], //分类
     tab: [true, true, true],
@@ -119,7 +112,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    //获取用户（test1）推荐社团信息列表
+    //获取用当前用户推荐社团信息列表
    let that = this
    wx.cloud.callFunction({
      name : "getRecomClubInfo",
@@ -128,59 +121,28 @@ Page({
      },
      success :function(res) {
        that.setData({
-         realData : res.result.recomClubsInfo
+         recomClubList : res.result.recomClubsInfo
        })
      }
    })
+   //获取所有社团
+   wx.cloud.callFunction({
+     name : "getClubMainInfo"
+   }).then(res => {
+     console.log(res)
+     that.setData({
+       allClubList : res.result.clubInfoList
+     })
+   })
+
+    //获取globalNotice
+    wx.cloud.callFunction({
+      name: "getGlobalNotice"
+    }).then(res => {
+      that.setData({
+        globalNotice: res.result.globalNotice.noticeContent
+      })
+    })
   },
 
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
 })

@@ -8,7 +8,8 @@ Page({
     pendingActivityNum : 0,
     pendingClubNum : 0,
     pendingActivity: null,
-    pendingClub: null
+    pendingClub: null,
+    notice : null,
   },
 
   gotoActivityAdmin: function (e) {
@@ -45,13 +46,28 @@ Page({
       url: '../clubInfo-admin/clubInfo-admin'
     })
   },
-  //切换tab标签事件
-  onChange: function (event) {
-    // wx.showToast({
-    //   title: `点击标签 ${event.detail.index + 1}`,
-    //   icon: 'none'
-    // });
+  
+  onInput : function(e){
+    this.setData({
+      notice : e.detail.value
+    })
   },
+
+  publishNotice : function(e){
+    wx.cloud.callFunction({
+      "name": "publishNotice",
+      "data" : {
+        noticeContent : this.data.notice,
+        noticeLevel : 0,
+        publisherID : wx.getStorageSync("userID")
+      }
+    }).then(res => {
+      wx.showToast({
+        title: '发布成功！',
+      })
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -62,6 +78,7 @@ Page({
       name : "getPendingActivityInfo",
     })
     .then(res => {
+      console.log(res)
       that.setData({
         pendingActivity : res.result.returnData,
         pendingActivityNum: res.result.returnData.length

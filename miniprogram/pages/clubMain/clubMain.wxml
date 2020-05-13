@@ -33,7 +33,7 @@
 
 
     <view class="container">
-      <view class='xiangqing' wx:for="{{realData}}" bindtap="navigateTo" data-item="{{item}}">
+      <view class='xiangqing' wx:for="{{recomClubList}}" bindtap="navigateTo" data-item="{{item}}">
         <view class='xiangqing_img'>
           <image src='{{item.clubImg}}'></image>
         </view>
@@ -57,13 +57,13 @@
 
       <!--页面其它部分-->
 
-      <van-dropdown-menu>
+      <!-- <van-dropdown-menu>
         <van-dropdown-item title="社团名称" options="{{ clubFilter }}" bindtap="item1click" />
         <van-dropdown-item title="活动时间" options="{{ dateFilter }}" />
         <van-dropdown-item title="活动地点" options="{{ locationFilter }}" />
-      </van-dropdown-menu>
+      </van-dropdown-menu> -->
       <!-- 列表视图-->
-      <block class="listView" wx:for="{{testData}}" wx:key="index">
+      <block class="listView" wx:for="{{allClubList}}" wx:key="index">
         <view class="cardView" bindtap="gotoClub" data-item="{{item}}">
 
           <!-- 左侧图片 -->
@@ -76,8 +76,8 @@
           <view style="display:flex;flex-direction:column;margin:5px">
             <label class="clubName">{{item.clubName}}</label>
             <label class="clubInfo">{{item.clubInfo}}</label>
-            <label class="clubHeaderName">{{item.clubHeaderName}}</label>
-            <label class="clubHeaderQQ">{{item.clubHeaderQQ}}</label>
+            <label class="clubHeaderName">{{item.managerName}}</label>
+            <label class="clubHeaderQQ">{{item.managerQQ}}</label>
 
             <!-- <view style="display:flex;flex-direction:row;height:20px;margin-top:8px"> -->
           </view>
