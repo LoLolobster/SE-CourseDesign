@@ -33,54 +33,6 @@ Page({
     number_txt: '',
     score_id: 0, //评分
     score_txt: '',
-    details: [{
-        img: '/images/club/1.jpg',
-        number: '73',
-        score: '98',
-        title: '文学社',
-        world: [{
-            message: '热门社团',
-          },
-          {
-            message: '好评社团'
-          }
-        ]
-      },
-      {
-        img: '/images/club/2.jpg',
-        number: '58',
-        score: '95',
-        title: '电竞社',
-        world: [{
-            message: '热门社团',
-          },
-          {
-            message: '好评社团'
-          }
-        ]
-      },
-      {
-        img: '/images/club/3.jpg',
-        number: '185',
-        score: '99',
-        title: '音乐社',
-        world: [{
-            message: '热门社团',
-          },
-          {
-            message: '好评社团'
-          }
-        ]
-      },
-      {
-        img: '/images/club/1.jpg',
-        number: '1',
-        score: '60',
-        title: '家里蹲社',
-
-      }
-
-    ],
   },
 
   // 选项卡
@@ -139,28 +91,14 @@ Page({
 
   },
 
-  gotoClub: function(e) {
-    var info = {
-      "clubName": e.currentTarget.dataset.item.clubName,
-      "clubImg": e.currentTarget.dataset.item.clubImg,
-      "clubInfo": e.currentTarget.dataset.item.clubInfo,
-      "clubHeaderName": e.currentTarget.dataset.item.clubHeaderName,
-      "clubHeaderQQ": e.currentTarget.dataset.item.clubHeaderQQ,
-    };
-
-    wx.setStorageSync('clubInfo', info);
-
-    wx.navigateTo({
-      url: '../clubInfo/clubInfo'
-    })
-  },
-
   navigateTo: function (e) {
-
+    wx.setStorageSync("clubDetail", e.currentTarget.dataset.item)
     wx.navigateTo({
-      url: '../clubDetail/clubDetail'
+      url: '../clubDetail/clubDetail',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
-
   },
 
   //切换tab标签事件
@@ -186,12 +124,11 @@ Page({
    wx.cloud.callFunction({
      name : "getRecomClubInfo",
      data : {
-       userID : getApp().globalData.userID
+       userID: wx.getStorageSync("userID")
      },
      success :function(res) {
-       console.log(res)
        that.setData({
-         realData : res.result.clubInfoList
+         realData : res.result.recomClubsInfo
        })
      }
    })
