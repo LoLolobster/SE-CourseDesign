@@ -193,7 +193,10 @@ Page({
 
     //获取globalNotice
     wx.cloud.callFunction({
-      name : "getGlobalNotice"
+      name : "getNoticeInfo",
+      data : {
+        isGlobal :true
+      }
     }).then(res => {
       that.setData({
         globalNotice : res.result.globalNotice.noticeContent
