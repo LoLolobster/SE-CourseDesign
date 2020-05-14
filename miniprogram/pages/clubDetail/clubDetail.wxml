@@ -12,5 +12,6 @@
       <van-cell center title="社团活动" size="large" is-link/>
       <van-cell center title="社团公告" size="large" is-link/>
     </van-cell-group>
-    <button type="default"  bindtap="defaultJoin"> {{operation}} </button>
+    <button  type="default" wx:if="{{hasJoined}}"  bind:tap="handleApplication"> 申请退出 </button>
+    <button type="default" wx:else="{{hasJoined}}"  bind:tap="handleApplication"> 申请加入 </button>
 </view>
