@@ -1,0 +1,13 @@
+<view class="container">
+  <view class='xiangqing' wx:for="{{details}}">
+    <view class='xiangqing_info' >
+      <text class='title'>{{item.noticeTitle}}</text>
+      <view class='content'>
+        <text>{{item.noticeContent}}</text>
+      </view>
+      <view class='time'>
+        <text>{{item.noticeTime}}\n</text>
+      </view>
+    </view> 
+  </view>
+</view>

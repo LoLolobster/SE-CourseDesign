@@ -1,0 +1,40 @@
+.container{
+  padding: 0;
+  margin-top: 91rpx;
+}
+.xiangqing{
+  display: flex;
+  flex-wrap:wrap;
+  width: 100%;
+  border-top: 2rpx #dedede solid;
+  margin-top: 25rpx;
+  padding-top:10rpx; 
+}
+.xiangqing_info{
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+}
+.xiangqing_info .title{
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+.content{
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+}
+.time{
+  position: absolute;
+  right: 10px;
+  color: #999999;
+}
+.container{
+  display: block;
+}
+
+
+
