@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="title">社团活动参与人数</view>
+    <canvas canvas-id="columnCanvas" class="canvas"></canvas>
+    <van-divider/>
+    <view class="title">社团成员数量</view>
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="lineTouchHandler"></canvas>
+    <van-divider/>
+    <view class="title">社团成员男女比例</view>
+    <canvas canvas-id="pieCanvas" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+    
+
+</view>

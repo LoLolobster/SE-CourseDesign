@@ -10,6 +10,7 @@ Page({
     pendingActivity: null,
     pendingClub: null,
     notice : null,
+    allClub : null,
   },
 
   gotoActivityAdmin: function (e) {
@@ -46,6 +47,13 @@ Page({
       url: '../clubInfo-admin/clubInfo-admin'
     })
   },
+
+  gotoClubReport : function(e){
+    wx.setStorageSync("clubReport", e.currentTarget.dataset.item)
+    wx.navigateTo({
+      url: '../clubReport/clubReport',
+    })
+  },
   
   onInput : function(e){
     this.setData({
@@ -78,7 +86,6 @@ Page({
       name : "getPendingActivityInfo",
     })
     .then(res => {
-      console.log(res)
       that.setData({
         pendingActivity : res.result.returnData,
         pendingActivityNum: res.result.returnData.length
@@ -93,7 +100,15 @@ Page({
         pendingClub : res.result.returnData,
         pendingClubNum : res.result.returnData.length
       })
+    })
 
+    //获取所有社团信息，用于社团报表
+    wx.cloud.callFunction({
+      name : "getClubMainInfo"
+    }).then(res => {
+      that.setData({
+        allClub : res.result.clubInfoList
+      })
     })
   }
 })

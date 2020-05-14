@@ -62,7 +62,27 @@
 
 
   <van-tab title="社团报表">
+   <!-- 列表视图-->
+    <block class="listView" wx:for="{{allClub}}" wx:key="index">
+      <view class="cardView" bindtap="gotoClubReport" data-item="{{item}}">
 
+        <!-- 左侧图片 -->
+        <view class="imgStyle">
+          <image wx:if="{{item.clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image>
+          <image wx:else="{{item.clubImg}}" mode="aspectFill" class="clubIcon" src="{{item.clubImg}}"></image>
+        </view>
+        
+        <!-- 右侧文字内容 -->
+        <view style="display:flex;flex-direction:column;margin:5px">
+            <label class="club-clubName">{{item.clubName}}</label>
+            <label class="clubInfo">{{item.clubInfo}}</label>
+            <label class="clubHeaderName">{{item.managerName}}</label>
+            <label class="clubHeaderQQ">{{item.managerQQ}}</label>
+          <!-- <view style="display:flex;flex-direction:row;height:20px;margin-top:8px"> -->
+        </view>
+
+      </view>
+    </block>
 
   </van-tab>
 </van-tabs>

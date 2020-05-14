@@ -1,0 +1,6 @@
+.title {
+	text-align: center;
+	position: relative;
+	margin-top: 20rpx;
+	margin-bottom: 20rpx;
+}

@@ -17,7 +17,8 @@
     "pages/clubInfo-admin/clubInfo-admin",
     "pages/myAdmin/myAdmin",
     "pages/clubInfo/clubInfo",
-    "pages/clubDetail/clubDetail"
+    "pages/clubDetail/clubDetail",
+    "pages/clubReport/clubReport"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -72,8 +73,9 @@
     "van-popup": "../dist/popup",
     "van-area": "../dist/area",
     "van-collapse": "../dist/collapse",
-    "van-collapse-item": "../dist/collapse-item"
+    "van-collapse-item": "../dist/collapse-item",
+    "van-divider": "../dist/divider"
   },
   "sitemapLocation": "sitemap.json",
-  "style":"v2"
+  "style": "v2"
 }
