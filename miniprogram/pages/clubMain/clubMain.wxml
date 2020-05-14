@@ -64,7 +64,7 @@
       </van-dropdown-menu> -->
       <!-- 列表视图-->
       <block class="listView" wx:for="{{allClubList}}" wx:key="index">
-        <view class="cardView" bindtap="gotoClub" data-item="{{item}}">
+        <view class="cardView" bindtap="navigateTo" data-item="{{item}}">
 
           <!-- 左侧图片 -->
           <view class="imgStyle">
