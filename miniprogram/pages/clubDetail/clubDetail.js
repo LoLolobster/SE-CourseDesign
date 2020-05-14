@@ -64,6 +64,12 @@ Page({
     }
   },
   
+  toNotice: function () {
+    wx.navigateTo({
+      url: '../clubNotice/clubNotice'
+    })
+  },
+
   getScanning: function () {
     app.getScanning()
   }
