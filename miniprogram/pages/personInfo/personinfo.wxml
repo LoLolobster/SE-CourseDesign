@@ -1,5 +1,3 @@
-<!--miniprogram/pages/about/about.wxml-->
-
 <view class="container"> 
   <view class="login-icon">  
     <image class="login-img" src="{{avatar}}"></image>  
