@@ -5,10 +5,11 @@
   <view class="nickName">{{nickName}}</view>
 <view class="collapse">
   <van-collapse  value="{{ activeNames }}" bind:change="onChange" >
-      <van-collapse-item  title="我的信息" name="1" >  
-        <view class="colContent"><text class="sds">性别:{{sex}}</text> </view>
+      <van-collapse-item  title="我的信息" name="1" > 
+         <view class="colContent"><text class="sds">性别:{{sex}}</text><view class="set" bindtap="gotoPersonSet"><image src="/images/setting.png" style="width: 30px; height: 30px;"></image>设置  </view></view>
+       
         <view class="colContent"><text class="sds">地区:{{province}}{{city}}</text></view>
-        <view class="colContent"><text class="sds">个性签名:{{signature}}</text></view>
+        <view class="colContent"><text class="sds">个性签名:{{signature}}</text></view>             
       </van-collapse-item>
       <van-collapse-item title="我的社团" name="2"> 
         <van-collapse-item title="我管理的社团" name="3" >

@@ -64,6 +64,14 @@ Page({
       complete: function (res) { },
     })
   },
+  gotoPersonSet(){
+    wx.navigateTo({
+      url: '../personInfoSet/personinfoSet',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   createClub(){
   //TODO
   },
@@ -73,6 +81,7 @@ Page({
       show: true
     });
   },
+
 
   /**
    * 生命周期函数--监听页面加载

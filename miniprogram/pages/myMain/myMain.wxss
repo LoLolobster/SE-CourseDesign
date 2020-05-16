@@ -31,14 +31,16 @@ page{
  display: flex;
  margin-top: 0 auto;
  justify-content: center;
- color: #ffffff;
+ color:black;
 }
 
 .collapse{
   margin-top: 100rpx;
 }
 
-.van
+.set{
+  margin-left: 480rpx;
+}
 
 .colContent{
   margin-left: 20rpx;

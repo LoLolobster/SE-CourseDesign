@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/myMain/myMain",
     "pages/personInfo/personinfo",
     "pages/signIn/signin",
     "pages/personInfoSet/personinfoSet",
@@ -9,7 +10,6 @@
     "pages/about/about",
     "pages/activityMain/activityMain",
     "pages/index/index",
-    "pages/myMain/myMain",
     "pages/clubRecommend/clubRecommend",
     "pages/activityInfo/activityInfo",
     "pages/signup/signup",
