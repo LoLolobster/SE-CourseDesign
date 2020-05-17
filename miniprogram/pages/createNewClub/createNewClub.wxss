@@ -1,0 +1,66 @@
+/* miniprogram/pages/createNewClub/createNewClub.wxss */
+
+.background {
+  width: 100%;
+  height: 100%;
+  position:fixed;
+  background-size: 100% 100%;
+  z-index: -1;
+}
+
+.header{
+  font-size: 40px;
+  margin-left: 5px;
+
+}
+
+.paneStyle{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  opacity: 70%;
+}
+
+.labelStyle{
+  margin-left: 5px;
+  font-size: 20px;
+  color: #000;
+}
+
+.textStyle{
+  margin-top:5px; 
+  height: 30px;
+  width: 90%;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #FFF;
+  opacity: 1;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #000;
+  align-content: center;
+}
+
+.clubImgStyle{
+  margin: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.previewImg{
+  width: 100px;
+  height: 100px;
+  margin-left: 20px;
+
+}
+
+.imgPaneStyle{
+  display: flex;
+  flex-direction:row;
+}
+
+.btn{
+  margin-top: 30px;
+  background-color:#FFF;
+  margin-bottom: 30px;
+}

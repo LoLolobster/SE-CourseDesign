@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/createNewClub/createNewClub",
     "pages/signIn/signin",
     "pages/myMain/myMain",
     "pages/personInfo/personinfo",
@@ -20,7 +21,8 @@
     "pages/clubDetail/clubDetail",
     "pages/clubReport/clubReport",
     "pages/club-Activity/club-Activity",
-    "pages/clubManagement/clubManagement"
+    "pages/clubManagement/clubManagement",
+    "pages/createNewActivity/createNewActivity"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
