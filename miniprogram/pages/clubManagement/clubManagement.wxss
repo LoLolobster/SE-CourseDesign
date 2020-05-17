@@ -1,0 +1,107 @@
+/* miniprogram/pages/clubManagement/clubManagement.wxss */
+.background{
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  position:fixed; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+
+.cardView{
+  background-color: #FFF;
+  border-radius: 5px;
+  margin: 5px;
+  display:flex;
+  height:140px;
+  margin-top:10px;
+  opacity: 0.8;
+  box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.10);
+  z-index: -1;
+}
+
+.userName{
+  width: 100%;
+  height: 30%;
+  font-size: 18pt;
+  color:#000;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+.memberGender{
+  width: 80%;
+  height: 80%;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+}
+
+.genderimgStyle{
+  width:30%;
+  height:25%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userOther{
+  width: 100%;
+  height: 20%;
+  font-size: 11pt;
+  color:#525252;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+.imgStyle{
+  width:30%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clubIcon{
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoStyle{
+  width: 35%;
+  height: 100%;
+  display:flex;
+  flex-direction:column;
+  margin:5px;
+}
+
+.btnView{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-self: flex-end;
+  /* float: right; */
+  /* margin-bottom: 10px; */
+  /* vertical-align: center; */
+  position: relative;
+  align-content: center;
+}
+
+.btnStyle{
+  width: 20%;
+  height: 20%;
+  top: 60%;
+  background-color:	#00CED1;
+  color: #FFF;
+  /* display: flex; */
+  /* align-items: center; */
+  /* align-items: baseline; */
+  /* justify-content: center; */
+}

@@ -33,7 +33,7 @@
 
 
     <view class="container">
-      <view class='xiangqing' wx:for="{{recomClubList}}" bindtap="navigateTo" data-item="{{item}}">
+      <view class='cardView' wx:for="{{recomClubList}}" bindtap="navigateTo" data-item="{{item}}">
         <view class='xiangqing_img'>
           <image src='{{item.clubImg}}'></image>
         </view>

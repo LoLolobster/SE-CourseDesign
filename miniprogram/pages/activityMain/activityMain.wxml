@@ -10,7 +10,7 @@
 <van-dropdown-menu >
 	<van-dropdown-item title="社团名称" options="{{ clubFilter }}" value="{{clubFilter}}" bind:change = "onClubNameChange"/>
 	<van-dropdown-item title="活动时间" options="{{ dateFilter }}" value = "{{ dateFilter }}" bind:change="onTimeChange"/>
-	<van-dropdown-item title="活动地点" options="{{ locationFilter }} " value="{{ locationFilter }} " bind:change="onLocationChange"/>
+	<van-dropdown-item title="活动地点" options="{{ locationFilter }}" value="{{ locationFilter }} " bind:change="onLocationChange"/>
 </van-dropdown-menu>
 
 <!-- 列表视图-->

@@ -9,7 +9,7 @@
     <van-cell-group>
       <van-cell center title="社团介绍" size="large" value="{{clubIntro}}"/>
       <navigator url="../clubMember/clubmember"><van-cell center title="社团成员" size="large" is-link /></navigator>
-      <van-cell center title="社团活动" size="large" is-link/>
+      <van-cell center title="社团活动" size="large" is-link bindtap="gotoClubActivity"/>
       <van-cell center title="社团公告" size="large" bindtap="toNotice" is-link/>
     </van-cell-group>
     <button  type="default" wx:if="{{hasJoined}}"  bind:tap="handleApplication"> 申请退出 </button>

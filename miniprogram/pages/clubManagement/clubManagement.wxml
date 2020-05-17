@@ -1,0 +1,76 @@
+<!--miniprogram/pages/clubManagement/clubManagement.wxml-->
+<image class='background' src="/images/bg/WHU2.JPEG" mode="aspectFill" />
+
+<van-tabs active="{{ 0 }}" bind:change="onChange">
+  <van-tab title="新成员审批" info="{{uncheckedClubMemberNum}}">
+
+
+    <van-dropdown-menu>
+      <van-dropdown-item title="学院" options="{{ academyFilter }}" value="{{ academyFilter }}" bind:change="onAcademyChange" />
+      <van-dropdown-item title="性别" options="{{ genderFilter }}" value="{{ genderFilter }}" bind:change="onGenderChange" />
+      <van-dropdown-item title="年级" options="{{ gradeFilter }}" value="{{ gradeFilter }}" bind:change="onGradeChange" />
+    </van-dropdown-menu>
+
+    <!-- 列表视图-->
+    <block class="listView" wx:for="{{uncheckedClubMember}}" wx:key="index">
+      <view class="cardView" data-item="{{item}}">
+
+        <!-- 左侧图片 -->
+        <view class="imgStyle">
+          <image wx:if="{{item.clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image>
+          <image wx:else="{{item.clubImg}}" mode="aspectFill" class="clubIcon" src="{{item.userImg}}"></image>
+        </view>
+
+        <!-- 右侧文字内容 -->
+        <view class="infoStyle">
+          <label class="userName">{{item.userName}}</label>
+          <view class="genderimgStyle">
+            <image wx:if="{{item.userGender == '男'}}" class="memberGender" src="/images/signin/boy.png"> </image>
+            <image wx:else="{{item.userGender == '女'}}" class="memberGender" src="/images/signin/girl.png"> </image>
+          </view>
+          <label class="userOther">{{item.userGrade}}</label>
+          <label class="userOther">{{item.userAcademy}}</label>
+          <!-- <view style="display:flex;flex-direction:row;height:20px;margin-top:8px"> -->
+        </view>
+
+        <view class="btnView">
+          <!-- 最右侧同意btn-->
+          <button class="btnStyle" bindtap="accept">同意</button>
+        </view>
+      </view>
+    </block>
+  </van-tab>
+
+  <van-tab title="活动参与人员审批" info="{{uncheckedActivityMemberNum}}">
+
+    <block class="listView" wx:for="{{uncheckedActivityMember}}" wx:key="index">
+      <view class="cardView" data-item="{{item}}">
+
+<!-- 左侧图片 -->
+        <view class="imgStyle">
+          <image wx:if="{{item.clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image>
+          <image wx:else="{{item.clubImg}}" mode="aspectFill" class="clubIcon" src="{{item.userImg}}"></image>
+        </view>
+
+        <!-- 右侧文字内容 -->
+        <view class="infoStyle">
+          <label class="userName">{{item.userName}}</label>
+          <view class="genderimgStyle">
+            <image wx:if="{{item.userGender == '男'}}" class="memberGender" src="/images/signin/boy.png"> </image>
+            <image wx:else="{{item.userGender == '女'}}" class="memberGender" src="/images/signin/girl.png"> </image>
+          </view>
+          <label class="userOther">{{item.userGrade}}</label>
+          <label class="userOther">{{item.userAcademy}}</label>
+          <!-- <view style="display:flex;flex-direction:row;height:20px;margin-top:8px"> -->
+        </view>
+
+        <view class="btnView">
+          <!-- 最右侧同意btn-->
+          <button class="btnStyle" bindtap="accept">同意</button>
+        </view>
+
+      </view>
+    </block>
+
+  </van-tab>
+</van-tabs>

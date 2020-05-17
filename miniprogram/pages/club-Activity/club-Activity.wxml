@@ -1,0 +1,20 @@
+<!--miniprogram/pages/club-Activity/club-Activity.wxml-->
+<image class='background' src="/images/bg/bg1.jpeg" mode="aspectFill"></image>
+
+<van-dropdown-menu >
+	<van-dropdown-item title="活动时间" options="{{ dateFilter }}" value = "{{ dateFilter }}" bind:change="onTimeChange"/>
+	<van-dropdown-item title="活动地点" options="{{ locationFilter }}" value="{{ locationFilter }}" bind:change="onLocationChange"/>
+</van-dropdown-menu>
+
+<!-- 列表视图-->
+<block class="listView" wx:for="{{realData}}" wx:key="index">
+  <view class="cardView" bindtap="gotoThisActivity"  data-item="{{item}}">
+  
+  <!-- 文字内容 -->
+    <label class="activityName">{{item.activityName}}</label>
+    <label class="activityTime">{{item.activityTime}}</label>
+    <label class="activityLocation" >{{item.activityLocation}}</label>
+  </view>
+
+
+</block>
