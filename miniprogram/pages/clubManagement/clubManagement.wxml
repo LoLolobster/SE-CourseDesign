@@ -41,12 +41,12 @@
     </block>
   </van-tab>
 
-  <van-tab title="活动参与人员审批" info="{{uncheckedActivityMemberNum}}">
+  <van-tab title="活动人员审批" info="{{uncheckedActivityMemberNum}}">
 
     <block class="listView" wx:for="{{uncheckedActivityMember}}" wx:key="index">
       <view class="cardView" data-item="{{item}}">
 
-<!-- 左侧图片 -->
+        <!-- 左侧图片 -->
         <view class="imgStyle">
           <image wx:if="{{item.clubImg == ''}}" mode="aspectFill" class="clubIcon" src="/images/club/1.JPG"></image>
           <image wx:else="{{item.clubImg}}" mode="aspectFill" class="clubIcon" src="{{item.userImg}}"></image>
@@ -71,6 +71,39 @@
 
       </view>
     </block>
+
+  </van-tab>
+
+  <van-tab title="发布活动">
+
+    <view class="paneStyle">
+      <label class="labelStyle">活动名称：</label>
+      <input placeholder="请输入活动名称" class="textStyle" bindblur="activityNameInput"></input>
+    </view>
+
+    <view>
+      <label class="labelStyle">活动时间：</label>
+      <input placeholder="请在下方滑动栏中选择活动时间" class="textStyle" value="{{pickedTime}}"></input>
+      <van-datetime-picker class="datePaneStyle" type="datetime" data-type="datetime" min-date="{{ minDate }}" bind:confirm="onInput" />
+    </view>
+
+    <view class="paneStyle">
+      <label class="labelStyle">活动地点：</label>
+      <van-dropdown-menu class="locationFilter">
+        <van-dropdown-item title="活动校区" options="{{ locationFilter }}" value="{{locationFilter}}" bind:change="onLocationChange" />
+      </van-dropdown-menu>
+      <input placeholder="请输入活动详细地点" class="textStyle" bindblur="activityLocationDetailInput"></input>
+    </view>
+
+    <view class="paneStyle">
+      <label class="labelStyle">活动简介：</label>
+      <input placeholder="请输入活动简介" class="textBigStyle" bindblur="activityInfoInput"></input>
+    </view>
+
+
+    <form bindsubmit="formSubmit" id='2' bindreset="formReset">
+      <button class='btn' formType="submit">申请创建</button>
+    </form>
 
   </van-tab>
 </van-tabs>

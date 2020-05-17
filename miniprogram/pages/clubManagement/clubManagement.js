@@ -44,6 +44,28 @@ Page({
       }
     ]
     ,
+    locationFilter: [
+      {
+        text: '所有',
+        value: 0
+      },
+      {
+        text: '文理学部',
+        value: '文理学部'
+      },
+      {
+        text: '信息学部',
+        value: '信息学部'
+      },
+      {
+        text: '工学部',
+        value: '工学部'
+      },
+      {
+        text: '医学部',
+        value: '医学部'
+      }
+    ],
 
     //待审批的社团新成员
     uncheckedClubMemberNum: 5,
@@ -104,8 +126,18 @@ Page({
         "userAcademy": "网络安全学院",
         "userGrade": "2016级"
       }
-    ]
+    ],
 
+    minDate: new Date(2020, 0, 1).getTime(),
+    maxDate: new Date(2025, 0, 1).getTime(),
+
+    pickedTime:"",
+    activityName:"",
+    //活动所在校区
+    activityLocation:"",
+    //活动所在详细地址
+    activityLocationDetail:"", 
+    activityInfo:""
   },
 
   /**
@@ -173,5 +205,99 @@ Page({
     wx.showToast({
       title: '同意申请成功！',
     })
+  },
+
+  /*时间选择器获取时间*/
+  onInput(event) {
+    const { detail, currentTarget } = event;
+    const result = this.getResult(detail, currentTarget.dataset.type);
+
+    console.log(result);
+    this.setData({
+      pickedTime : result
+    })
+  },
+
+  getResult(time, type) {
+    const date = new Date(time);
+    switch (type) {
+      case 'datetime':
+        return date.toLocaleString();
+      case 'date':
+        return date.toLocaleDateString();
+      case 'year-month':
+        return `${date.getFullYear()}/${date.getMonth() + 1}`;
+      case 'time':
+        return time;
+      default:
+        return '';
+    }
+  },
+
+  onLocationChange:function(e){
+    let detail = e.detail
+    this.setData({
+      activityLocation:e.detail
+    })
+    console.log(detail)
+  },
+
+  activityNameInput:function(e){
+    this.setData({
+      activityName:e.detail.value
+    })
+  },
+
+  activityLocationDetailInput:function(e){
+    this.setData({
+      activityLocationDetail: e.detail.value
+    })
+  },
+
+  activityInfoInput:function(e){
+    this.setData({
+      activityInfo:e.detail.value
+    })
+  },
+
+
+  //提交表单，将数据存入数据库
+  formSubmit:function(e){
+    if (this.data.activityName === ""){
+      wx.showToast({
+        title: "活动名称不能为空！",
+        icon: "warn"
+      })
+    } else if (this.data.pickedTime === null){
+      wx.showToast({
+        title: "请选择活动时间！",
+        icon: "warn"
+      })
+    } else if (this.data.activityLocation === ""){
+      wx.showToast({
+        title: "请选择活动校区！",
+        icon: "warn"
+      })
+    } else if (this.data.activityLocationDetail === "") {
+      wx.showToast({
+        title: "活动详细地址不能为空！",
+        icon:"warn"
+      })
+    } else if (this.data.activityInfo === "") {
+      wx.showToast({
+        title: "活动简介不能为空！",
+        icon: "warn"
+      })
+    }
+    else{
+
+      //数据库存取操作
+
+      wx.showToast({
+        title: "已提交活动申请！",
+        icon: "success"
+      })
+    }
   }
+  
 })
