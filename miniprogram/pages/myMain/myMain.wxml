@@ -20,9 +20,9 @@
         </view>
       </van-collapse-item>
       <van-collapse-item title="我的社团" name="2">
-        <van-collapse-item title="我管理的社团" name="3">
+        <van-collapse-item title="我管理的社团" name="3" >
           <view class="colContent">
-            <van-button bindclick="createClub" class="btn">创建社团</van-button>
+            <van-button bindclick="createClub">创建社团</van-button>
           </view>
           <view class="colContent" wx:for="{{mClubList}}" data-item="{{item}}">
             <view wx:if="{{item.id==0}}" bindtap="{{gotoClub}}">

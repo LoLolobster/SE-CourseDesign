@@ -73,7 +73,10 @@ Page({
     })
   },
   createClub(){
-  //TODO
+  
+    wx.navigateTo({
+      url: '../createNewClub/createNewClub',
+    })
   },
 
   showPicker() {
@@ -147,6 +150,5 @@ Page({
         }
       }
     })
-  },
-
+  }
 })
