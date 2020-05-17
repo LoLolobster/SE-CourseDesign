@@ -265,28 +265,28 @@ Page({
   formSubmit:function(e){
     if (this.data.activityName === ""){
       wx.showToast({
-        title: "活动名称不能为空！",
-        icon: "warn"
+        title: "活动名称为空！",
+        image: '/images/warning.png'
       })
     } else if (this.data.pickedTime === null){
       wx.showToast({
-        title: "请选择活动时间！",
-        icon: "warn"
+        title: "请选择时间！",
+        image: '/images/warning.png'
       })
     } else if (this.data.activityLocation === ""){
       wx.showToast({
-        title: "请选择活动校区！",
-        icon: "warn"
+        title: "请选择校区！",
+        image: '/images/warning.png'
       })
     } else if (this.data.activityLocationDetail === "") {
       wx.showToast({
-        title: "活动详细地址不能为空！",
-        icon:"warn"
+        title: "详细地址为空！",
+        image: '/images/warning.png'
       })
     } else if (this.data.activityInfo === "") {
       wx.showToast({
-        title: "活动简介不能为空！",
-        icon: "warn"
+        title: "活动简介为空！",
+        image: '/images/warning.png'
       })
     }
     else{

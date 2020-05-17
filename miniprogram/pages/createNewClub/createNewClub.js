@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    temp_img: ""
+    temp_img: "",
+    clubName: "",
+    headerName: "",
+    headerqq: "",
+    headerPhone: "",
+    clubInfo: ""
+
+
   },
 
   /**
@@ -64,60 +71,89 @@ Page({
 
   },
 
-
-  formSubmit: function(e) {
-    var id = e.target.id
-    adds = e.detail.value;
-    adds.program_id = app.jtappid
-    adds.openid = app._openid
-    adds.zx_info_id = this.data.zx_info_id
-    this.upload()
-
-    wx.showToast({
-      title:"已提交新社团申请！"
-    })
-  },
-
-
   /*
     将新社团信息储存在云数据库pendingclub中
   */
-  upload: function() {
-    var that = this
-
-    wx.uploadFile({
-
-      //url填写服务器数据库的图片储存路径
-      url: 'https:***/submit',
-      filePath: that.data.temp_img,
-      name: 'content',
-      formData: adds,
-      success: function(res) {
-        console.log(res)
-        if (res) {
-          wx.showToast({
-            title: '已提交发布！',
-            duration: 3000
-          });
-        }
-      }
-    })
-
-    this.setData({
-      formdata: ''
-    })
-  },
+  
 
   upimg: function() {
     var that = this;
-    
-      wx.chooseImage({
-        sizeType: ['original', 'compressed'],
-        success: function(res) {
-          that.setData({
-            temp_img: that.data.temp_img.concat(res.tempFilePaths)
-          })
-        }
+
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],
+      success: function(res) {
+        that.setData({
+          temp_img: that.data.temp_img.concat(res.tempFilePaths)
+          
+        })
+        // console.log(that.data.temp_img)
+      }
+    })
+  },
+  clubNameInput: function(e) {
+    this.setData({
+      clubName: e.detail.value
+    })
+  },
+  headerNameInput: function(e) {
+    this.setData({
+      headerName: e.detail.value
+    })
+  },
+  headerqqInput: function(e) {
+    this.setData({
+      headerqq: e.detail.value
+    })
+  },
+  headerPhoneInput: function(e) {
+    this.setData({
+      headerPhone: e.detail.value
+    })
+  },
+  clubInfoInput: function(e) {
+    this.setData({
+      clubInfo: e.detail.value
+    })
+  },
+
+  formSubmit: function(e) {
+    if (this.data.clubName === "") {
+      wx.showToast({
+        title: "社团名称为空！",
+        image:'/images/warning.png',
+        duration:2000
       })
+    } else if (this.data.headerName === null) {
+      wx.showToast({
+        title: "社长姓名为空！",
+        image: '/images/warning.png'
+      })
+    } else if (this.data.headerqq === "") {
+      wx.showToast({
+        title: "社长qq为空！",
+        image: '/images/warning.png'
+      })
+    } else if (this.data.headerPhone === "") {
+      wx.showToast({
+        title: "社长电话为空！",
+        image: '/images/warning.png'
+      })
+    } else if (this.data.clubInfo === "") {
+      wx.showToast({
+        title: "社团简介为空！",
+        image: '/images/warning.png'
+      })
+    }
+    else {
+
+      //数据库存取操作
+
+
+
+      wx.showToast({
+        title: "已提交社团申请！",
+        icon: "success"
+      })
+    }
   },
 })

@@ -5,27 +5,27 @@
 <label class="header">创建社团</label>
 <view class="paneStyle">
   <label class="labelStyle">社团名称：</label>
-  <textarea placeholder="请输入社团名称" class="textStyle"></textarea>
+  <input placeholder="请输入社团名称" class="textStyle" bindblur="clubNameInput"></input>
 </view>
 
 <view class="paneStyle">
   <label class="labelStyle">社长姓名：</label>
-  <textarea placeholder="请输入你的姓名" class="textStyle"></textarea>
+  <input placeholder="请输入你的姓名" class="textStyle" bindblur="headerNameInput"></input>
 </view>
 
 <view class="paneStyle">
   <label class="labelStyle">社长QQ：</label>
-  <textarea placeholder="请输入你的QQ" class="textStyle"></textarea>
+  <input placeholder="请输入你的QQ" class="textStyle" bindblur="headerqqInput"></input>
 </view>
 
 <view class="paneStyle">
   <label class="labelStyle">社长联系电话：</label>
-  <textarea placeholder="请输入你的电话" class="textStyle"></textarea>
+  <input placeholder="请输入你的电话" class="textStyle" bindblur="headerPhoneInput"></input>
 </view>
 
 <view class="paneStyle">
   <label class="labelStyle">社团简介：</label>
-  <textarea placeholder="请输入社团简介" class="textBigStyle"></textarea>
+  <input placeholder="请输入社团简介" class="textBigStyle" bindblur="clubInfoInput"></input>
 </view>
 
 
