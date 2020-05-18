@@ -12,7 +12,8 @@ exports.main = async (event, context) => {
 
   await db.collection("user_activity").where({
     userID: inputUserID,
-    activityID: inputActivityID
+    activityID: inputActivityID,
+    state : -1
   }).get().then(res => {
     if(res.data.length === 0){
       currentState = 0
@@ -27,7 +28,7 @@ exports.main = async (event, context) => {
       data: {
         userID: inputUserID,
         activityID: inputActivityID,
-        state: 2
+        state: -1 //待审核
       }
     })
       .then(res => {
