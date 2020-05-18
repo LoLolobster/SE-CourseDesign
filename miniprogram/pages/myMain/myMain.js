@@ -47,7 +47,10 @@ Page({
     })
   },
   createClub(){
-  //TODO
+  
+    wx.navigateTo({
+      url: '../createNewClub/createNewClub',
+    })
   },
 
   showPicker() {
@@ -56,7 +59,11 @@ Page({
     });
   },
 
-
+  gotoClubManagement: function () {
+    wx.navigateTo({
+      url: '../clubManagement/clubManagement'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -109,6 +116,5 @@ Page({
         }
       }
     })
-  },
-
+  }
 })

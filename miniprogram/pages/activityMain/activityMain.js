@@ -41,7 +41,7 @@ Page({
     locationFilter : [
       {
         text: '所有',
-        value: 0
+        value: '所有'
       },
       {
         text: '文理学部',

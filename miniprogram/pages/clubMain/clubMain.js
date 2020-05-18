@@ -94,14 +94,6 @@ Page({
     })
   },
 
-  //切换tab标签事件
-  onChange: function (event) {
-    wx.showToast({
-      title: `点击标签 ${event.detail.index + 1}`,
-      icon: 'none'
-    });
-  },
-
   //固定公告栏在顶部
   onPageScroll: function (e) {//监听页面滚动
     this.setData({
@@ -122,6 +114,11 @@ Page({
      success :function(res) {
        that.setData({
          recomClubList : res.result.recomClubsInfo
+       })
+     },
+     fail:function(){
+       wx.showToast({
+         title: 'failed',
        })
      }
    })

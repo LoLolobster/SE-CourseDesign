@@ -29,13 +29,17 @@
   opacity: 0.7
 }
 
+.container{
+  /* display: block; */
+}
+
 .cardView{
   background-color: #FFF;
   border-radius: 5px;
   margin: 5px;
   display:flex;
   height:140px;
-  margin-top:10px;
+  margin-top:10px; 
   opacity: 0.8;
   box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.10);
   z-index: -1;
@@ -320,9 +324,7 @@ color: #A8A8A8
   font-weight: 600;
   margin-right: 25rpx;
 }
-.container{
-  display: block;
-}
+
 
 .topnavFixed{
 border-top-left-radius:20rpx;

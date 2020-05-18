@@ -107,6 +107,21 @@ Page({
     })
 
   },
+
+  //社团活动跳转事件
+  gotoClubActivity: function (e) {
+    var info = {
+      //修改为后台传入社团名
+      "clubName": this.data.clubName,
+      "clubImage": this.data.clubImage
+    };
+
+    wx.setStorageSync('clubInfo', info);
+
+    wx.navigateTo({
+      url: '../club-Activity/club-Activity'
+    })
+  },
   
   toNotice: function () {
     wx.navigateTo({

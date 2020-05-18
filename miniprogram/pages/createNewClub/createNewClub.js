@@ -1,0 +1,159 @@
+// miniprogram/pages/createNewClub/createNewClub.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    temp_img: "",
+    clubName: "",
+    headerName: "",
+    headerqq: "",
+    headerPhone: "",
+    clubInfo: ""
+
+
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  },
+
+  /*
+    将新社团信息储存在云数据库pendingclub中
+  */
+  
+
+  upimg: function() {
+    var that = this;
+
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],
+      success: function(res) {
+        that.setData({
+          temp_img: that.data.temp_img.concat(res.tempFilePaths)
+          
+        })
+        // console.log(that.data.temp_img)
+      }
+    })
+  },
+  clubNameInput: function(e) {
+    this.setData({
+      clubName: e.detail.value
+    })
+  },
+  headerNameInput: function(e) {
+    this.setData({
+      headerName: e.detail.value
+    })
+  },
+  headerqqInput: function(e) {
+    this.setData({
+      headerqq: e.detail.value
+    })
+  },
+  headerPhoneInput: function(e) {
+    this.setData({
+      headerPhone: e.detail.value
+    })
+  },
+  clubInfoInput: function(e) {
+    this.setData({
+      clubInfo: e.detail.value
+    })
+  },
+
+  formSubmit: function(e) {
+    if (this.data.clubName === "") {
+      wx.showToast({
+        title: "社团名称为空！",
+        image:'/images/warning.png',
+        duration:2000
+      })
+    } else if (this.data.headerName === null) {
+      wx.showToast({
+        title: "社长姓名为空！",
+        image: '/images/warning.png'
+      })
+    } else if (this.data.headerqq === "") {
+      wx.showToast({
+        title: "社长qq为空！",
+        image: '/images/warning.png'
+      })
+    } else if (this.data.headerPhone === "") {
+      wx.showToast({
+        title: "社长电话为空！",
+        image: '/images/warning.png'
+      })
+    } else if (this.data.clubInfo === "") {
+      wx.showToast({
+        title: "社团简介为空！",
+        image: '/images/warning.png'
+      })
+    }
+    else {
+
+      //数据库存取操作
+
+
+
+      wx.showToast({
+        title: "已提交社团申请！",
+        icon: "success"
+      })
+    }
+  },
+})
