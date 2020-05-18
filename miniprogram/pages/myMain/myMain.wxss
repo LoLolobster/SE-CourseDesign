@@ -72,3 +72,7 @@ page{
   color: black;
   
 }
+.cjst{
+  font-size: 30rpx;
+  
+}
