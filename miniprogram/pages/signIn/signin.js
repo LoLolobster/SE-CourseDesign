@@ -94,6 +94,12 @@ Page({
           app.globalData.userID = res.data[0]._id
           //将全局变量userName设置为当前登录的用户名
           app.globalData.userName = res.data[0].userName
+
+          wx.setStorage({
+            key: 'userID',
+            data: res.data[0]._id,
+          })
+          
           //如果记住密码——缓存用户名,密码与ID
           if (app.globalData.remPwd) {
             wx.setStorage({
@@ -104,10 +110,7 @@ Page({
               key: 'userPwd',
               data: inputPwd,
             })
-            wx.setStorage({
-              key: 'userID',
-              data: res.data[0]._id,
-            })
+            
           }
           //缓存——是否自动登录(只有在初次登录成功时才能自动登录)
           if (app.globalData.autoLogin){

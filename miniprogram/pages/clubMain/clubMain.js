@@ -115,6 +115,11 @@ Page({
        that.setData({
          recomClubList : res.result.recomClubsInfo
        })
+     },
+     fail:function(){
+       wx.showToast({
+         title: 'failed',
+       })
      }
    })
    //获取所有社团
