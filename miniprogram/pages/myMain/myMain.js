@@ -47,7 +47,6 @@ Page({
     })
   },
   createClub(){
-  
     wx.navigateTo({
       url: '../createNewClub/createNewClub',
     })
@@ -67,9 +66,6 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  //TODO 
-  //从数据库中获取{{shezhang}}的值，为1时显示按钮，否则隐藏
-  //从数据库中读取用户数据
   onLoad: function (options) {
     let that = this
     let personID = wx.getStorageSync("userID")
@@ -79,7 +75,7 @@ Page({
         "personID": personID
       }
     }).then(res => {
-      console.log(res)
+      wx.setStorageSync("myMainInfo", res.result.personInfo)
       that.setData({
         "nickName": res.result.personInfo.nickName,
         "avatar": res.result.personInfo.userImg,

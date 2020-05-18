@@ -17,14 +17,14 @@
         <van-collapse-item title="我管理的社团" name="3" >
 
           <view class="colContent" bind:tap="createClub"><text class="cjst">创建新的社团</text></view>
-          <view class="colContent" wx:for="{{mClubList}}" data-item="{{item}}">       
-            <view bindtap="gotoClub"><image src="{{item.clubImg}}" style="width: 15px; height: 15px;"></image>
+          <view class="colContent" wx:for="{{mClubList}}">       
+            <view bindtap="gotoClub"  data-item="{{item}}"><image src="{{item.clubImg}}" style="width: 15px; height: 15px;"></image>
  <text class="sds">{{item.clubName}}</text></view>
           </view>
         </van-collapse-item>
         <van-collapse-item title="我加入的社团" name="4">
-                 <view class="colContent" wx:for="{{oClubList}}" data-item="{{item}}">
-            <view bindtap="gotoClub"><image src="{{item.clubImg}}" style="width: 15px; height: 15px;"></image>
+                 <view class="colContent" wx:for="{{oClubList}}">
+            <view bindtap="gotoClub"  data-item="{{item}}"> <image src="{{item.clubImg}}" style="width: 15px; height: 15px;"></image>
  <text class="sds">{{item.clubName}}</text></view>
           </view>
         </van-collapse-item>
@@ -32,27 +32,25 @@
 
       <van-collapse-item title="我的活动" name="5"> 
                 <van-collapse-item title="我管理的活动" name="6" >
-          <view class="colContent" bind:tap="createActivity"><text class="cjst">创建新的活动</text></view>
-          <view class="colContent" wx:for="{{mActivityList}}" data-item="{{item}}">       
-            <view bindtap="gotoActivity"><text class="sds">{{item.activityName}}</text></view>
+          <view class="colContent" wx:for="{{mActivityList}}">       
+            <view bindtap="gotoActivity"  data-item="{{item}}"><text class="sds">{{item.activityName}}</text></view>
           </view>
         </van-collapse-item>
         <van-collapse-item title="我加入的活动" name="7">
-                 <view class="colContent" wx:for="{{oActivityList}}" data-item="{{item}}">
-            <view bindtap="gotoActivity">
+                 <view class="colContent" wx:for="{{oActivityList}}">
+            <view bindtap="gotoActivity"  data-item="{{item}}">
  <text class="sds">{{item.activityName}}</text></view>
           </view>
         </van-collapse-item> 
       </van-collapse-item>
       <van-collapse-item title="我的公告" name="8"> 
         <van-collapse-item title="我发布的" name="9" >
-        <view class="colContent" bind:tap="createNotice"><text class="cjst">发布新的公告</text></view>
-          <view class="colContent" wx:for="{{mNoticeList}}" data-item="{{item}}"> <view bindtap="gotoNotice">
+          <view class="colContent" wx:for="{{mNoticeList}}" > <view bindtap="gotoNotice" data-item="{{item}}">
  <text class="sds">{{item.noticeTitle}}</text></view>
           </view>
         </van-collapse-item>
         <van-collapse-item title="我收到的" name="10 ">
-          <view class="colContent" wx:for="{{oNoticeList}}" data-item="{{item}}"><view bindtap="gotoNotice">
+          <view class="colContent" wx:for="{{oNoticeList}}"><view bindtap="gotoNotice"  data-item="{{item}}">
  <text class="sds">{{item.noticeTitle}}</text></view>
           </view>
         </van-collapse-item>    

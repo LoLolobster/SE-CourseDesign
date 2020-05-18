@@ -7,9 +7,6 @@ Page({
   data: {
     temp_img: "",
     clubName: "",
-    headerName: "",
-    headerqq: "",
-    headerPhone: "",
     clubInfo: ""
 
 
@@ -80,14 +77,22 @@ Page({
     var that = this;
 
     wx.chooseImage({
-      sizeType: ['original', 'compressed'],
-      success: function(res) {
-        that.setData({
-          temp_img: that.data.temp_img.concat(res.tempFilePaths)
-          
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        let filePath = res.tempFilePaths[0] //临时文件路径
+        let cloudPath = Date.now() + "club" + filePath.match(/\.[^.]+?$/)[0] //远端文件名
+        wx.cloud.uploadFile({ //上传到云存储
+          cloudPath,
+          filePath
+        }).then(res => {
+          that.setData({ //再设置回本地
+            "temp_img": res.fileID
+          })
         })
-        // console.log(that.data.temp_img)
-      }
+
+      },
     })
   },
   clubNameInput: function(e) {
@@ -117,26 +122,12 @@ Page({
   },
 
   formSubmit: function(e) {
+    let that = this 
     if (this.data.clubName === "") {
       wx.showToast({
         title: "社团名称为空！",
         image:'/images/warning.png',
         duration:2000
-      })
-    } else if (this.data.headerName === null) {
-      wx.showToast({
-        title: "社长姓名为空！",
-        image: '/images/warning.png'
-      })
-    } else if (this.data.headerqq === "") {
-      wx.showToast({
-        title: "社长qq为空！",
-        image: '/images/warning.png'
-      })
-    } else if (this.data.headerPhone === "") {
-      wx.showToast({
-        title: "社长电话为空！",
-        image: '/images/warning.png'
       })
     } else if (this.data.clubInfo === "") {
       wx.showToast({
@@ -145,14 +136,20 @@ Page({
       })
     }
     else {
-
-      //数据库存取操作
-
-
-
-      wx.showToast({
-        title: "已提交社团申请！",
-        icon: "success"
+      wx.cloud.callFunction({
+        name : "createClub",
+        data : {
+          clubImg : that.data.temp_img,
+          clubInfo : that.data.clubInfo,
+          clubName : that.data.clubName,
+          userID : wx.getStorageSync("userID")
+        }
+      }).then(res =>{
+        console.log(res)
+        wx.showToast({
+          title: "已提交社团申请！",
+          icon: "success"
+        })
       })
     }
   },
