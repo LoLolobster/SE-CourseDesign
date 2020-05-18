@@ -10,21 +10,22 @@ Page({
     clubImg: "",
 
     realData: [
-      {
-        activityLocation: "信部操场",
-        activityTime: "2020/05/10",
-        activityName: "新学期招新"
-      }, {
-        activityLocation: "梅园操场",
-        activityTime: "2020/05/11",
-        activityName: "诗词大会"
-      }, {
-        activityLocation: "樱顶",
-        activityTime: "2020/05/14",
-        activityName: "第三周例会"
-      }
+      // {
+      //   activityLocation: "信部操场",
+      //   activityTime: "2020/05/10",
+      //   activityName: "新学期招新"
+      // }, {
+      //   activityLocation: "梅园操场",
+      //   activityTime: "2020/05/11",
+      //   activityName: "诗词大会"
+      // }, {
+      //   activityLocation: "樱顶",
+      //   activityTime: "2020/05/14",
+      //   activityName: "第三周例会"
+      // }
     ]
     ,
+    cloudData: [],
     dateFilter: [
       {
         text: '所有',
@@ -74,23 +75,96 @@ Page({
 
   },
 
+  //按时间筛选
+  onTimeChange: function (e) {
+    let detail = e.detail
+    let newActivityList = []
+    let now = Date.now()
+    for (let ac of this.data.cloudData) {
+      let activityTS = Date.parse(ac.activityTime) //字符串日期转换为时间戳
+      switch (detail) {
+        case "所有":
+          newActivityList.push(ac)
+          break;
+        case "一天内":
+          if (now - activityTS <= 86400000) {
+            newActivityList.push(ac)
+          }
+          break;
+        case "三天内":
+          if (now - activityTS <= 3 * 86400000) {
+            newActivityList.push(ac)
+          }
+          break;
+        case "一周内":
+          if (now - activityTS <= 7 * 86400000) {
+            newActivityList.push(ac)
+          }
+          break;
+        case "一月内":
+          if (now - activityTS <= 30 * 86400000) {
+            newActivityList.push(ac)
+          }
+          break;
+        default:
+          break;
+      }
+    }
+    this.setData({
+      realData: newActivityList
+    })
+  },
+
+  //按地点（学部）筛选
+  onLocationChange: function (e) {
+    console.log(e)
+    let detail = e.detail
+    let newActivityList = []
+    for (let ac of this.data.cloudData) {
+      if (ac.department === detail || detail === "所有") {
+        newActivityList.push(ac)
+      }
+    }
+    this.setData({
+      realData: newActivityList
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var info = wx.getStorageSync('clubInfo');
-    console.log(info.clubName);
     this.setData({
       "clubName": info.clubName,
       "clubImg": info.clubImg
     });
     wx.removeStorageSync('clubName');
+    let that = this
+    let clubID = wx.getStorageSync("clubDetail")._id
+    wx.cloud.callFunction({
+      name : "getActivityMainInfo",
+    }).then(res => {
+      let activities = []
+      for(let ac of res.result.data.list){
+        if(ac.clubID === clubID){
+          activities.push(ac)
+        }
+      }
+      that.setData({
+        realData : activities,
+        cloudData : activities
+      })
+    })
+    
+
   },
 
   gotoThisActivity: function (e) {
+    console.log(e)
     var info = {
-      "clubName": this.clubName,
-      "clubImg": this.clubImg,
+      "clubName": e.currentTarget.dataset.item.publishedActivities[0].clubName,
+      "clubImg": e.currentTarget.dataset.item.publishedActivities[0].clubImg,
       "activityName": e.currentTarget.dataset.item.activityName,
       "activityLocation": e.currentTarget.dataset.item.activityLocation,
       "activityTime": e.currentTarget.dataset.item.activityTime
