@@ -1,4 +1,7 @@
 <!--miniprogram/pages/myAdmin/myAdmin.wxml-->
+
+<!-- 页面背景文件 -->
+<image class='background' src="/images/bg/WHU.JPG" mode="aspectFill"></image>
 <van-tabs active="{{ 0 }}" bind:change="onChange">
 
   <van-tab title="活动审批" info="{{pendingActivityNum}}">
