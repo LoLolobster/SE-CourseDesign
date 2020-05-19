@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/clubManagement/clubManagement",
     "pages/signIn/signin",
+    "pages/clubManagement/clubManagement",
     "pages/myMain/myMain",
     "pages/createNewClub/createNewClub",
     "pages/personInfo/personinfo",
