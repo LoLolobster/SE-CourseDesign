@@ -29,6 +29,16 @@ Page({
       activeNames: event.detail
     });
   },
+
+  quit : function(e){
+    let res = wx.getStorageInfoSync()
+    for(let key of res.keys){
+      wx.removeStorageSync(key)
+    }
+    wx.redirectTo({
+      url: '../signIn/signin',
+    })
+  },
   gotoClub: function (e){
     wx.setStorageSync("clubDetail", e.currentTarget.dataset.item)
     wx.navigateTo({

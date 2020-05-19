@@ -66,5 +66,6 @@
     <view wx:if="{{shezhang}}">  
       <van-button type="primary" class="serveBtn" size="large" round="ture" bind:click="handlerServe">辞退</van-button>  
     </view>  -->
+    <van-button class="quitBtn" type="primary" class="quitBtn" size="large" round="ture" bindtap = "quit">退出登录</van-button>
   <van-toast id="van-toast" />
 </view>
