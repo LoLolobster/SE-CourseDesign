@@ -120,9 +120,17 @@ Page({
             })
           }    
           //页面跳转
-          wx.switchTab({
-            url: '../activityMain/activityMain',
-          })
+          if (wx.getStorageSync("userID") === "b5ad2e925ea7f857005f54df3c79f7f2"){
+            console.log("管理员")
+            wx.navigateTo({
+              url: '../myAdmin/myAdmin',
+            })
+          }
+          else {
+            wx.switchTab({
+              url: '../activityMain/activityMain',
+            })
+          }
         }
         //密码匹配失败
         else{
