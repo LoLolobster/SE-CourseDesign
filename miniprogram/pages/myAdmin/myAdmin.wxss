@@ -148,6 +148,8 @@
   margin-left: 20px;
   margin-right: 20px;
   border:solid 1px;
+  background-color: #FFF;
+  opacity: 0.8;
 }
 
 .noticeBtn{

@@ -59,7 +59,7 @@
 
   <van-tab title="发布公告">
     <view class="noticeHeader">发布公告</view>
-    <textarea placeholder="在此键入公告内容" type="string" class="noticeInput" bind:input="onInput"></textarea>
+    <input placeholder="在此键入公告内容" type="string" class="noticeInput" bind:input="onInput"></input>
     <van-button type="primary" class="noticeBtn" bind:tap="publishNotice">发布</van-button>
   </van-tab>
 
