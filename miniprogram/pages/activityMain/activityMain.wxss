@@ -4,7 +4,14 @@
   z-index: 1;
 } */
 .listView{
-  position: fixed;
+  position: absolute;
+  /* margin-top: 80px; */
+}
+
+.mainContent{
+  display:flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .background{
@@ -141,4 +148,10 @@ border-top-left-radius:20rpx;
 border-top-right-radius:20rpx;
 position:absolute;
 width:100%; top:0rpx;background:white;z-index: 1;
+}
+
+.dropMenu{
+  position: relative;
+  
+  /* margin-top:5px;  */
 }
