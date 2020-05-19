@@ -35,11 +35,9 @@
 
         <view class="btnView">
           <!-- 最右侧同意btn-->
-          <button class="btnStyle" bindtap="acceptClubApplication">同意</button>
-        </view>
-        <view class="btnView">
+          <button class="btnAccStyle" style="width:60%;" bindtap="acceptClubApplication">同意</button>
           <!-- 最右侧拒绝btn-->
-          <button class="btnStyle" bindtap="refuseClubApplication">拒绝</button>
+          <button class="btnRefStyle" style="width:60%;" bindtap="refuseClubApplication">拒绝</button>
         </view>
       
       </view>
@@ -73,12 +71,9 @@
 
         <view class="btnView">
           <!-- 最右侧同意btn-->
-          <button class="btnStyle" bindtap="acceptActivityApplication">同意</button>
-        </view>
-
-         <view class="btnView">
+          <button class="btnAccStyle" style="width:60%;" bindtap="acceptActivityApplication">同意</button>
           <!-- 最右侧拒接btn-->
-          <button class="btnStyle" bindtap="refuseActivityApplication">拒绝</button>
+          <button class="btnRefStyle" style="width:60%;" bindtap="refuseActivityApplication">拒绝</button>
         </view>
 
       </view>

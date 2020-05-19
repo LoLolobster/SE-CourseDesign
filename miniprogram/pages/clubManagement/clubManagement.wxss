@@ -59,7 +59,7 @@
 
 
 .imgStyle{
-  width:30%;
+  width:40%;
   height:100%;
   display: flex;
   align-items: center;
@@ -83,21 +83,22 @@
 }
 
 .btnView{
-  width: 30%;
+  width: 40%;
   height: 100%;
   display: flex;
-  align-self: flex-end;
-  /* float: right; */
+  flex-direction: column;
+  /* align-self: flex-end; */
+  float: right;
   /* margin-bottom: 10px; */
   /* vertical-align: center; */
   position: relative;
   align-content: center;
 }
 
-.btnStyle{
-  width: 20%;
+.btnAccStyle{
+  width: 10%;
   height: 20%;
-  top: 60%;
+  top: 30%;
   background-color:	#00CED1;
   color: #FFF;
   /* display: flex; */
@@ -105,7 +106,17 @@
   /* align-items: baseline; */
   /* justify-content: center; */
 }
-
+.btnRefStyle{
+  width: 10%;
+  height: 20%;
+  top: 35%;
+  background-color:	rgb(202, 37, 16);
+  color: #FFF;
+  /* display: flex; */
+  /* align-items: center; */
+  /* align-items: baseline; */
+  /* justify-content: center; */
+}
 .paneStyle{
   display: flex;
   flex-direction: column;
